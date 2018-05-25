@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# freaking fix the sources
+
+# install things I like
 apt-get install aptitude
 aptitude install zsh
 aptitude install vim
@@ -30,6 +33,7 @@ aptitude install netdiag
 aptitude install rsync
 aptitude install imagemagik
 aptitude install jq
+aptitude install redshift
 
 #chrome
 cd /tmp	
@@ -68,6 +72,8 @@ aptitude -f install slack.deb
 #echo "deb http://repo.vivaldi.com/stable/deb/ stable main" >> /etc/apt/sources.list.d/vivaldi.list
 #deb http://repo.vivaldi.com/stable/deb/ stable main
 
+wget -O /tmp/burpsuite.jar https://portswigger.net/burp/releases/download\?product=community\&version=1.7.32\&type=jar
 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 
