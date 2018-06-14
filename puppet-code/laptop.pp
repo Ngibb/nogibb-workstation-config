@@ -41,16 +41,27 @@ $wanted_packages.each |String $my_package|{
 }
 
 
-
 apt::source {'debian_more':
-  repos => 'main contrib non-free',
   comment => 'deb-src http://deb.debian.org/debian/ stretch main',
+  location => 'http://deb.debian.org/debian/',
   release => 'stretch',
-  location => 'http://deb.debian.org/debian/'
-  #deb
-
+  repos => 'main contrib non-free',
 }
 
+apt::source {'spotify-puppet':
+  comment => 'spotify',
+  location => 'http://repository.spotify.com',
+  release => 'stable',
+  repos => 'non-free',
+}
+
+apt::source {'google-puppet':
+  comment => 'chrome',
+  architecture => 'amd64',
+  location => 'http://dl.google.com/linux/chrome/deb/',
+  release => 'stable',
+  repos => 'main',
+}
 
 
 # Intel wifidrivers
