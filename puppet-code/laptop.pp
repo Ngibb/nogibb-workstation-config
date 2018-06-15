@@ -1,3 +1,10 @@
+# TODO:
+# ngibb shell
+# oh-my-zsh
+# oh my zsh theme
+# dot files
+# git config
+
 $wanted_packages = [
 	'aptitude',
 	'vim',
@@ -14,6 +21,7 @@ $wanted_packages = [
 	'dos2unix',
 	'irssi',
 	'terminator',
+        'openconnect',
 	'mtr',
 	'strace',
 	'wireshark',
@@ -29,10 +37,11 @@ $wanted_packages = [
 	'imagemagick',
 	'jq',
 	'redshift', #TODO: Configure this
-#       'spotify-client',	
+	# Require other repos
+#       'spotify-client',
+	'google-chrome-stable',
+	'steam'
 ]
-
-
 
 $wanted_packages.each |String $my_package|{
 	package { $my_package:
@@ -41,7 +50,7 @@ $wanted_packages.each |String $my_package|{
 }
 
 
-apt::source {'debian_more':
+apt::source {'base':
   comment => 'deb-src http://deb.debian.org/debian/ stretch main',
   location => 'http://deb.debian.org/debian/',
   release => 'stretch',
@@ -63,11 +72,24 @@ apt::source {'google-puppet':
   repos => 'main',
 }
 
+apt::source {'steam-puppet':
+  comment => 'steam',
+  architecture => 'amd64,i386',
+  location => 'http://repo.steampowered.com/steam/',
+  release => 'precise',
+  repos => 'steam',
+}
+# Steam src?
 
 # Intel wifidrivers
 package { 'firmware-iwlwifi':
 	ensure => installed 
 }
+
+# Discord
+# Slack
+# Burp
+# Vivaldi
 
 
 
