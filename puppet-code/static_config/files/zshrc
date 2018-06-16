@@ -1,0 +1,115 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+  export ZSH=/home/ngibb/.oh-my-zsh
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+#ZSH_THEME="gentoo"
+ZSH_THEME="../../.nolan"
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+#--------------
+export EDITOR="/usr/bin/vim"
+
+#burp suite
+alias burp="nohup java -jar ~/bin/burpsuite &"
+
+#intellij
+alias intJ="nohup ~/intj/bin/idea.sh"
+
+#password
+alias ump="nohup ~/bin/upm-1.14/upm.sh"
+
+ # Example aliases
+ alias zshconfig="vim ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+
+
+man() {
+	env \
+		LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+		LESS_TERMCAP_md=$(printf "\e[1;31m") \
+		LESS_TERMCAP_me=$(printf "\e[0m") \
+		LESS_TERMCAP_se=$(printf "\e[0m") \
+		LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+		LESS_TERMCAP_ue=$(printf "\e[0m") \
+		LESS_TERMCAP_us=$(printf "\e[1;32m") \
+			man "$@"
+}
+
+alias kcurl='curl --negociate -u :'
+
+alias iecurl='curl -s -i -H '\''X-PNRG-CCSEED: HtAIT9cf51lF6Ka4D+kETBjcENDq1vXYlL3KE8P6DR8='\'' -A '\''Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/4.0; InfoPath.2; SV1; .NET CLR 2.0.50727; WOW64)'\'''
+
+#mvn
+export MAVEN_HOME="/home/ngibb/apps/maven"
+
+
+##local java dev stuff
+export JAVA_HOME="/home/ngibb/apps/java"
+export PATH="$PATH:$JAVA_HOME/bin:$MAVEN_HOME/bin:"
+
+#mvn again
+#export PATH MAVEN_HOME
+#export CLASSPATH=.
+
+
+##docker local dev
+#export docker= 
+
+#export COMPOSE_PROJECT_NAME=smartsheet
+#export GIT_ROOT=/home/ngibb/git                           
+#export GIT_APP_CORE=${GIT_ROOT}/app-core
+#export COMPOSE_FILE=${GIT_APP_CORE}/docker-compose.yml
+
+#autoload -U +X bashcompinit && bashcompinit
+#complete -o nospace -C /home/ngibb/bin/vault/vault vault

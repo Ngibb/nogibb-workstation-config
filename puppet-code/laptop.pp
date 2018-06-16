@@ -145,15 +145,18 @@ apt::source {'vivaldi':
 # Vivaldi
 
 file {'/etc/gitconfig':
-  source => 'puppet:///modules/static_config/gitconfig' 
+  source => 'puppet:///modules/static_config/gitconfig', 
+  require => File["/etc/puppet/code/modules/static_config"],
 }
 
 file {"/home/${config_user}/.vimrc":
-  source => 'puppet:///modules/static_config/vimrc' 
+  source => 'puppet:///modules/static_config/vimrc', 
+  require => File["/etc/puppet/code/modules/static_config"],
 }
 
 file {"/home/${config_user}/.zshrc":
-  source => 'puppet:///modules/static_config/zshrc' 
+  source => 'puppet:///modules/static_config/zshrc', 
+  require => File["/etc/puppet/code/modules/static_config"],
 }
 
 file {"/home/${config_user}/git":
@@ -172,6 +175,11 @@ file {"/home/${config_user}/.oh-my-zsh/.nolan.zsh-theme":
   ensure => 'link', 
   target => "/home/${config_user}/git/nolan-omzsh-theme/.nolan.zsh-theme", 
   #require => "Exec['clone-ngibb-zsh']", 
+}
+
+file {"/etc/puppet/code/modules/static_config":
+  ensure => 'link', 
+  target => "/home/${config_user}/git/workstation-config/puppet-code/static_config", 
 }
 
 user{$config_user:

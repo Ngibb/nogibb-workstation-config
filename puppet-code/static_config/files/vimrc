@@ -1,0 +1,5 @@
+set hlsearch
+syntax on
+set viminfo='20,<1000
+set display=lastline
+set t_BE=
