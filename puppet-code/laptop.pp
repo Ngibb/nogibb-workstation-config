@@ -159,6 +159,11 @@ file {"/home/${config_user}/.zshrc":
   require => File["/etc/puppet/code/modules/static_config"],
 }
 
+file {"/home/${config_user}/.config/terminator/config":
+  source => 'puppet:///modules/static_config/terminator_config', 
+  require => File["/etc/puppet/code/modules/static_config"],
+}
+
 file {"/home/${config_user}/git":
   ensure => 'directory', 
 }
@@ -181,6 +186,7 @@ file {"/etc/puppet/code/modules/static_config":
   ensure => 'link', 
   target => "/home/${config_user}/git/workstation-config/puppet-code/static_config", 
 }
+
 
 user{$config_user:
   ensure => present,
