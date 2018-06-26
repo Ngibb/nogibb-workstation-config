@@ -45,9 +45,9 @@ $wanted_packages = [
 	'jq',
 	'redshift', #TODO: Configure this
 	# Require other repos
-        'spotify-client',
-	'google-chrome-stable',
-	'steam'
+        #'spotify-client',
+	#'google-chrome-stable',
+	#'steam'
 ]
 
 $wanted_packages.each |String $my_package|{
@@ -144,27 +144,36 @@ apt::source {'vivaldi':
 # Burp
 # Vivaldi
 
-file {'/etc/gitconfig':
-  source => 'puppet:///modules/static_config/gitconfig', 
-  require => File["/etc/puppet/code/modules/static_config"],
+file {"/home/${config_user}/.irssi/config":
+  ensure => 'link', 
+  target => "/home/${config_user}/git/workstation-config/puppet-code/static_config/files/irssi_config", 
+}
+
+file {"/home/${config_user}/.irssi/foxmask.theme":
+  ensure => 'link', 
+  target => "/home/${config_user}/git/workstation-config/puppet-codestatic_config/files/foxmask.theme", 
 }
 
 file {"/home/${config_user}/.vimrc":
-  source => 'puppet:///modules/static_config/vimrc', 
-  require => File["/etc/puppet/code/modules/static_config"],
+  ensure => 'link', 
+  target => "/home/${config_user}/git/workstation-config/puppet-code/static_config/files/vimrc", 
 }
 
 file {"/home/${config_user}/.zshrc":
-  source => 'puppet:///modules/static_config/zshrc', 
-  require => File["/etc/puppet/code/modules/static_config"],
+  ensure => 'link', 
+  target => "/home/${config_user}/git/workstation-config/puppet-code/static_config/files/zshrc", 
 }
 
 file {"/home/${config_user}/.config/terminator/config":
-  source => 'puppet:///modules/static_config/terminator_config', 
-  require => File["/etc/puppet/code/modules/static_config"],
+  ensure => 'link', 
+  target => "/home/${config_user}/git/workstation-config/puppet-code/static_config/files/terminator_config", 
 }
 
 file {"/home/${config_user}/git":
+  ensure => 'directory', 
+}
+
+file {"/home/${config_user}/.irssi":
   ensure => 'directory', 
 }
 
@@ -182,10 +191,10 @@ file {"/home/${config_user}/.oh-my-zsh/.nolan.zsh-theme":
   #require => "Exec['clone-ngibb-zsh']", 
 }
 
-file {"/etc/puppet/code/modules/static_config":
-  ensure => 'link', 
-  target => "/home/${config_user}/git/workstation-config/puppet-code/static_config", 
-}
+#file {"/etc/puppet/code/modules/static_config":
+#  ensure => 'link', 
+#  target => "/home/${config_user}/git/workstation-config/puppet-code/static_config", 
+#}
 
 
 user{$config_user:
