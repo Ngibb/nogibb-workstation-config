@@ -1,39 +1,4 @@
-#!/bin/bash
-
-# freaking fix the sources
-
-# install things I like
-apt-get install aptitude
-aptitude install zsh
-aptitude install vim
-aptitude install keepass2
-aptitude install keepassx
-aptitude install dnsutils
-aptitude install geoip-bin
-aptitude install libfdisk1
-aptitude install gcc
-aptitude install gdb
-aptitude install cgdb
-aptitude install mlocate
-aptitude install dos2unix
-aptitude install irssi
-aptitude install terminator
-aptitude install mtr
-aptitude install strace
-aptitude install wireshark
-aptitude install nmap
-aptitude install git
-aptitude install iperf
-aptitude install deluge
-aptitude install iotop
-aptitude install mlocate
-aptitude install curl
-aptitude install vlc
-aptitude install netdiag
-aptitude install rsync
-aptitude install imagemagik
-aptitude install jq
-aptitude install redshift
+## iptables is `sudo crontab -e`
 
 #chrome
 cd /tmp	

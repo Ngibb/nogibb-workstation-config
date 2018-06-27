@@ -1,10 +1,8 @@
 # TODO:
-# terminator config
 # ngibb shell
 # oh-my-zsh
 # oh my zsh theme
 # dot files
-# git config
 # vim rc set t_BE= vim linux middle click 
 # ssh authorized keys
 
@@ -140,6 +138,10 @@ apt::source {'vivaldi':
 #package { 'firmware-iwlwifi':
 #	ensure => installed 
 #}
+## exec, rekick the module
+# modprobe -r iwlwifi ; modprobe iwlwifi
+
+
 
 # Discord
 # Slack
