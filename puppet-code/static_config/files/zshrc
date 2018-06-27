@@ -63,6 +63,8 @@ export EDITOR="/usr/bin/vim"
 alias burp="nohup java -jar ~/bin/burpsuite &"
 
 #chrome
+alias okta="google-chrome --new-window smartsheet.okta.com"
+alias bugcrowd="google-chrome --new-window tracker.bugcrowd.com"
 alias appdot="google-chrome --new-window app.smartsheet.com"
 alias github.hq="google-chrome --new-window github.hq.smartsheet.com"
 alias incog="google-chrome --incognito"

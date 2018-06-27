@@ -187,6 +187,11 @@ file {"/home/${config_user}/.config/terminator/config":
   target => "${static_config_dir}/files/terminator_config", 
 }
 
+file {"/etc/motd":
+  ensure => 'link', 
+  target => "${static_config_dir}/files/${facts['hostname']}-motd",
+}
+
 
 exec {"clone-ngibb-zsh":
   user => $config_user,
