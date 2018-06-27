@@ -11,6 +11,8 @@
 # Vars
 
 $config_user = 'ngibb'
+$workstation_config_dir = "/home/${config_user}/git/workstation-config"
+$static_config_dir = "${workstation_config_dir}/puppet-code/static_config"
 
 $wanted_packages = [
 	'aptitude',
@@ -144,30 +146,6 @@ apt::source {'vivaldi':
 # Burp
 # Vivaldi
 
-file {"/home/${config_user}/.irssi/config":
-  ensure => 'link', 
-  target => "/home/${config_user}/git/workstation-config/puppet-code/static_config/files/irssi_config", 
-}
-
-file {"/home/${config_user}/.irssi/foxmask.theme":
-  ensure => 'link', 
-  target => "/home/${config_user}/git/workstation-config/puppet-codestatic_config/files/foxmask.theme", 
-}
-
-file {"/home/${config_user}/.vimrc":
-  ensure => 'link', 
-  target => "/home/${config_user}/git/workstation-config/puppet-code/static_config/files/vimrc", 
-}
-
-file {"/home/${config_user}/.zshrc":
-  ensure => 'link', 
-  target => "/home/${config_user}/git/workstation-config/puppet-code/static_config/files/zshrc", 
-}
-
-file {"/home/${config_user}/.config/terminator/config":
-  ensure => 'link', 
-  target => "/home/${config_user}/git/workstation-config/puppet-code/static_config/files/terminator_config", 
-}
 
 file {"/home/${config_user}/git":
   ensure => 'directory', 
@@ -176,6 +154,37 @@ file {"/home/${config_user}/git":
 file {"/home/${config_user}/.irssi":
   ensure => 'directory', 
 }
+
+file {"/home/${config_user}/.irssi/config":
+  ensure => 'link', 
+  target => "${static_config_dir}/files/irssi/irssi_config", 
+}
+
+file {"/home/${config_user}/.irssi/foxmask.theme":
+  ensure => 'link', 
+  target => "${static_config_dir}/files/irssi/foxmask.theme", 
+}
+
+file {"/home/${config_user}/.vimrc":
+  ensure => 'link', 
+  target => "${static_config_dir}/files/vimrc", 
+}
+
+file {"/home/${config_user}/.zshrc":
+  ensure => 'link', 
+  target => "${static_config_dir}/files/zshrc", 
+}
+
+file {"/root/.zshrc":
+  ensure => 'link', 
+  target => "/home/${config_user}/.zshrc", 
+}
+
+file {"/home/${config_user}/.config/terminator/config":
+  ensure => 'link', 
+  target => "${static_config_dir}/files/terminator_config", 
+}
+
 
 exec {"clone-ngibb-zsh":
   user => $config_user,
