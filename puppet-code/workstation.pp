@@ -207,10 +207,10 @@ file {"/home/${config_user}/.oh-my-zsh/.nolan.zsh-theme":
   #require => "Exec['clone-ngibb-zsh']", 
 }
 
-#file {"/etc/puppet/code/modules/static_config":
-#  ensure => 'link', 
-#  target => "/home/${config_user}/git/workstation-config/puppet-code/static_config", 
-#}
+file {"/etc/puppet/code/modules/ngibb_config":
+  ensure => 'link', 
+  target => "/home/${config_user}/git/workstation-config/puppet-code/ngibb_config", 
+}
 
 
 user{$config_user:
@@ -219,5 +219,6 @@ user{$config_user:
   require => "Package[zsh]"
 }
 
+include ngibb_config::laptop
 
 
