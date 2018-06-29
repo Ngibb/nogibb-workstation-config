@@ -69,6 +69,12 @@ alias appdot="google-chrome --new-window app.smartsheet.com"
 alias github.hq="google-chrome --new-window github.hq.smartsheet.com"
 alias incog="google-chrome --incognito"
 
+#vpn
+alias vpn="sudo openconnect --authgroup SMARTSHEET-ALL https://oasis.smartsheet.com -u $USER"
+
+#ssh
+alias cuiaba="ssh cuiaba.ops.smartsheet.com"
+
 #intellij
 alias intJ="nohup ~/intj/bin/idea.sh"
 
