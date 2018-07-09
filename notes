@@ -1,5 +1,8 @@
 ## iptables is `sudo crontab -e`
 
+virtual box
+sync keypass for non workstation nodes
+
 #chrome
 cd /tmp	
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
