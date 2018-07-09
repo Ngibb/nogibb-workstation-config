@@ -5,6 +5,8 @@
 # dot files
 # vim rc set t_BE= vim linux middle click 
 # ssh authorized keys
+# fail2ban
+# multitail 
 
 # Vars
 
@@ -43,6 +45,7 @@ $wanted_packages = [
 	'rsync',
 	'imagemagick',
 	'jq',
+	'ddd', #debugger
 	'redshift', #TODO: Configure this
 	# Require other repos
         #'spotify-client',
@@ -207,10 +210,10 @@ file {"/home/${config_user}/.oh-my-zsh/.nolan.zsh-theme":
   #require => "Exec['clone-ngibb-zsh']", 
 }
 
-#file {"/etc/puppet/code/modules/static_config":
-#  ensure => 'link', 
-#  target => "/home/${config_user}/git/workstation-config/puppet-code/static_config", 
-#}
+file {"/etc/puppet/code/modules/static_config":
+  ensure => 'link', 
+  target => "/home/${config_user}/git/workstation-config/puppet-code/static_config", 
+}
 
 
 user{$config_user:
@@ -219,5 +222,7 @@ user{$config_user:
   require => "Package[zsh]"
 }
 
-
-
+file {"/etc/opt/chrome/policies/managed/kerb.json":
+  ensure => 'file',
+  source => ["puppet:///modules/static_config/google-chrome/kerb.json",],
+}
