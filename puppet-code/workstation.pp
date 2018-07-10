@@ -14,6 +14,14 @@ $config_user = 'ngibb'
 $workstation_config_dir = "/home/${config_user}/git/workstation-config"
 $static_config_dir = "${workstation_config_dir}/puppet-code/ngibb_config"
 
+$host_type = $facts['hostname'] ? {
+  'cuiaba'	 => 'workstation',
+  'compo-grande' => 'homestation',
+  'fatima'       => 'laptop',
+  'default'      => '', 
+}
+
+
 $wanted_packages = [
 	'aptitude',
 	'vim',
@@ -227,4 +235,4 @@ file {"/etc/opt/chrome/policies/managed/kerb.json":
   source => ["puppet:///modules/ngibb_config/google-chrome/kerb.json",],
 }
 
-include ngibb_config::laptop
+include "ngibb_config::${host_type}"
