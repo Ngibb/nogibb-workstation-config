@@ -7,6 +7,7 @@
 # ssh authorized keys
 # fail2ban
 # multitail 
+# visual studio code 
 
 # Vars
 
@@ -233,6 +234,11 @@ user{$config_user:
 file {"/etc/opt/chrome/policies/managed/kerb.json":
   ensure => 'file',
   source => ["puppet:///modules/ngibb_config/google-chrome/kerb.json",],
+}
+
+file {"/home/ngibb/.config/google-chrome/Default/Bookmarks":
+  ensure => 'link', 
+  target => "/home/${config_user}/git/workstation-config/puppet-code/ngibb_config/files/google-chrome/Bookmarks", 
 }
 
 include "ngibb_config::${host_type}"
