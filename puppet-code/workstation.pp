@@ -12,7 +12,7 @@
 
 $config_user = 'ngibb'
 $workstation_config_dir = "/home/${config_user}/git/workstation-config"
-$static_config_dir = "${workstation_config_dir}/puppet-code/static_config"
+$static_config_dir = "${workstation_config_dir}/puppet-code/ngibb_config"
 
 $wanted_packages = [
 	'aptitude',
@@ -224,7 +224,7 @@ user{$config_user:
 
 file {"/etc/opt/chrome/policies/managed/kerb.json":
   ensure => 'file',
-  source => ["puppet:///modules/static_config/google-chrome/kerb.json",],
+  source => ["puppet:///modules/ngibb_config/google-chrome/kerb.json",],
 }
 
 include ngibb_config::laptop
