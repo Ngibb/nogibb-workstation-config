@@ -7,7 +7,8 @@
 # ssh authorized keys
 # fail2ban
 # multitail 
-# visual studio code 
+# visual studio code
+# gron, make json greppable
 
 # Vars
 
@@ -17,7 +18,7 @@ $static_config_dir = "${workstation_config_dir}/puppet-code/ngibb_config"
 
 $host_type = $facts['hostname'] ? {
   'cuiaba'	 => 'workstation',
-  'compo-grande' => 'homestation',
+  'campo-grande' => 'homestation',
   'fatima'       => 'laptop',
   'default'      => '', 
 }
@@ -146,12 +147,6 @@ apt::source {'vivaldi':
 
 # Steam src?
 
-# Intel wifidrivers
-#package { 'firmware-iwlwifi':
-#	ensure => installed 
-#}
-## exec, rekick the module
-# modprobe -r iwlwifi ; modprobe iwlwifi
 
 
 

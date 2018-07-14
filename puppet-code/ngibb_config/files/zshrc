@@ -81,6 +81,10 @@ alias intJ="nohup ~/intj/bin/idea.sh"
 #password
 alias ump="nohup ~/bin/upm-1.14/upm.sh"
 
+
+#password
+alias configure-me="sudo puppet apply /home/ngibb/git/workstation-config/puppet-code/configure_me.pp -t"
+
  # Example aliases
  alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
