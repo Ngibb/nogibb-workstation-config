@@ -51,6 +51,8 @@ $wanted_packages = [
 	'iotop',
 	'curl',
 	'vlc',
+	'whois',
+	'cryptsetup',
 	'netdiag',
 	'rsync',
 	'imagemagick',

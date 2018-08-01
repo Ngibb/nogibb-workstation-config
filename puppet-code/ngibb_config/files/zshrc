@@ -54,79 +54,15 @@ ZSH_THEME="../../.nolan"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-source $ZSH/oh-my-zsh.sh
 
-#--------------
 export EDITOR="/usr/bin/vim"
 
-#burp suite
-alias burp="nohup java -jar ~/bin/burpsuite &"
+source $ZSH/oh-my-zsh.sh
 
-#chrome
-alias okta="google-chrome --new-window smartsheet.okta.com"
-alias bugcrowd="google-chrome --new-window tracker.bugcrowd.com"
-alias appdot="google-chrome --new-window app.smartsheet.com"
-alias github.hq="google-chrome --new-window github.hq.smartsheet.com"
-alias incog="google-chrome --incognito"
-
-#vpn
-alias vpn="sudo openconnect --authgroup SMARTSHEET-ALL https://oasis.smartsheet.com -u $USER"
-
-#ssh
-alias cuiaba="ssh cuiaba.ops.smartsheet.com"
-
-#intellij
-alias intJ="nohup ~/intj/bin/idea.sh"
-
-#password
-alias ump="nohup ~/bin/upm-1.14/upm.sh"
-
-
-#password
-alias configure-me="sudo puppet apply /home/ngibb/git/workstation-config/puppet-code/configure_me.pp -t"
-
- # Example aliases
- alias zshconfig="vim ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-
-
-man() {
-	env \
-		LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-		LESS_TERMCAP_md=$(printf "\e[1;31m") \
-		LESS_TERMCAP_me=$(printf "\e[0m") \
-		LESS_TERMCAP_se=$(printf "\e[0m") \
-		LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-		LESS_TERMCAP_ue=$(printf "\e[0m") \
-		LESS_TERMCAP_us=$(printf "\e[1;32m") \
-			man "$@"
-}
-
-alias kcurl='curl --negociate -u :'
-
-alias iecurl='curl -s -i -H '\''X-PNRG-CCSEED: HtAIT9cf51lF6Ka4D+kETBjcENDq1vXYlL3KE8P6DR8='\'' -A '\''Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/4.0; InfoPath.2; SV1; .NET CLR 2.0.50727; WOW64)'\'''
-
-#mvn
-export MAVEN_HOME="/home/ngibb/apps/maven"
-
-
-##local java dev stuff
-export JAVA_HOME="/home/ngibb/apps/java"
-export PATH="$PATH:$JAVA_HOME/bin:$MAVEN_HOME/bin:"
-
-#mvn again
-#export PATH MAVEN_HOME
-#export CLASSPATH=.
-
-
-##docker local dev
-#export docker= 
-
-#export COMPOSE_PROJECT_NAME=smartsheet
-#export GIT_ROOT=/home/ngibb/git                           
-#export GIT_APP_CORE=${GIT_ROOT}/app-core
-#export COMPOSE_FILE=${GIT_APP_CORE}/docker-compose.yml
-
-#autoload -U +X bashcompinit && bashcompinit
-#complete -o nospace -C /home/ngibb/bin/vault/vault vault
+# dir sourcing
+# Load all files from .shell/zshrc.d directory
+if [ -d $HOME/.zshrc.d ]; then
+  for file in $HOME/.zshrc.d/*.zsh; do
+    source $file
+  done
+fi
