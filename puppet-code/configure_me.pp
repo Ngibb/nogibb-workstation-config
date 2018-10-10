@@ -93,46 +93,51 @@ $wanted_packages.each |String $my_package|{
 #  },
 #}
 
-apt::source {'spotify':
-  comment => 'spotify',
-  location => 'http://repository.spotify.com',
-  release => 'stable',
-  repos => 'non-free',
-}
 
+#apt::source {'spotify':
+#  comment => 'spotify',
+#  location => 'http://repository.spotify.com',
+#  release => 'stable',
+#  repos => 'non-free',
+#}
+#
 apt::source {'google-chrome':
-  comment => 'chrome',
+  comment      => 'chrome',
   architecture => 'amd64',
-  location => 'http://dl.google.com/linux/chrome/deb/',
-  release => 'stable',
-  repos => 'main',
+  location     => 'http://dl.google.com/linux/chrome/deb/',
+  release      => 'stable',
+  repos        => 'main',
+  key          => {
+    'id'     => 'EB4C1BFD4F042F6DDDCCEC917721F63BD38B4796',
+    'source' => 'https://dl.google.com/linux/linux_signing_key.pub', 
+  }
 }
-
-apt::source {'steam-puppet':
-  comment => 'steam',
-  architecture => 'amd64,i386',
-  location => 'http://repo.steampowered.com/steam/',
-  release => 'precise',
-  repos => 'steam',
- # key => {
- #   'server' => 'repo.steampowered.com',
- #   'id' => 'F24AEA9FB05498B7',
- # }
-}
-
-apt::source {'slack':
-  comment => 'slack',
-  location => 'https://packagecloud.io/slacktechnologies/slack/debian/',
-  release => 'jessie',
-  repos => 'main',
-}
-
-apt::source {'vivaldi':
-  comment => 'vivaldi',
-  location => 'http://repo.vivaldi.com/stable/deb/',
-  release => 'stable',
-  repos => 'main',
-}
+#
+#apt::source {'steam-puppet':
+#  comment => 'steam',
+#  architecture => 'amd64,i386',
+#  location => 'http://repo.steampowered.com/steam/',
+#  release => 'precise',
+#  repos => 'steam',
+# # key => {
+# #   'server' => 'repo.steampowered.com',
+# #   'id' => 'F24AEA9FB05498B7',
+# # }
+#}
+#
+#apt::source {'slack':
+#  comment => 'slack',
+#  location => 'https://packagecloud.io/slacktechnologies/slack/debian/',
+#  release => 'jessie',
+#  repos => 'main',
+#}
+#
+#apt::source {'vivaldi':
+#  comment => 'vivaldi',
+#  location => 'http://repo.vivaldi.com/stable/deb/',
+#  release => 'stable',
+#  repos => 'main',
+#}
 
 #apt::source {'docker':
 #  comment => 'docker', 
@@ -233,9 +238,9 @@ file {"/etc/opt/chrome/policies/managed/kerb.json":
   source => ["puppet:///modules/ngibb_config/google-chrome/kerb.json",],
 }
 
-file {"/home/ngibb/.config/google-chrome/Default/Bookmarks":
-  ensure => 'link', 
-  target => "/home/${config_user}/git/workstation-config/puppet-code/ngibb_config/files/google-chrome/Bookmarks", 
-}
+#file {"/home/ngibb/.config/google-chrome/Default/Bookmarks":
+#  ensure => 'link', 
+#  target => "/home/${config_user}/git/workstation-config/puppet-code/ngibb_config/files/google-chrome/Bookmarks", 
+#}
 
 include "ngibb_config::${host_type}"
