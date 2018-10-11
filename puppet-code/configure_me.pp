@@ -9,6 +9,8 @@
 # multitail 
 # visual studio code
 # gron, make json greppable
+# Discord
+# Burp
 
 # Vars
 
@@ -58,11 +60,12 @@ $wanted_packages = [
 	'imagemagick',
 	'jq',
 	'ddd', #debugger
-	'redshift', #TODO: Configure this
+	'redshift', #TODO: Configure this have it pull from a config file
 	# Require other repos
-        #'spotify-client',
-	#'google-chrome-stable',
+        'spotify-client',
+	'google-chrome-stable',
 	#'steam'
+	'slack-desktop',
 ]
 
 $wanted_packages.each |String $my_package|{
@@ -94,13 +97,17 @@ $wanted_packages.each |String $my_package|{
 #}
 
 
-#apt::source {'spotify':
-#  comment => 'spotify',
-#  location => 'http://repository.spotify.com',
-#  release => 'stable',
-#  repos => 'non-free',
-#}
-#
+apt::source {'spotify':
+  comment => 'spotify',
+  location => 'http://repository.spotify.com',
+  release => 'stable',
+  repos => 'non-free',
+  key          => {
+    'id'     => '931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90',
+    'server' => 'keyserver.ubuntu.com', 
+  }
+}
+
 apt::source {'google-chrome':
   comment      => 'chrome',
   architecture => 'amd64',
@@ -125,19 +132,26 @@ apt::source {'google-chrome':
 # # }
 #}
 #
-#apt::source {'slack':
-#  comment => 'slack',
-#  location => 'https://packagecloud.io/slacktechnologies/slack/debian/',
-#  release => 'jessie',
-#  repos => 'main',
-#}
-#
-#apt::source {'vivaldi':
-#  comment => 'vivaldi',
-#  location => 'http://repo.vivaldi.com/stable/deb/',
-#  release => 'stable',
-#  repos => 'main',
-#}
+apt::source {'slack':
+  comment => 'slack',
+  location => 'https://packagecloud.io/slacktechnologies/slack/debian/',
+  release => 'jessie',
+  repos => 'main',
+  key          => {
+    'id'     => 'DB085A08CA13B8ACB917E0F6D938EC0D038651BD',
+  }
+}
+
+apt::source {'vivaldi':
+  comment => 'vivaldi',
+  location => 'http://repo.vivaldi.com/stable/deb/',
+  release => 'stable',
+  repos => 'main',
+  key          => {
+    'id'     => '6BA2B0F3B8B061697E98ADFA6D3789EDC3401E12',
+    'source' => 'http://repo.vivaldi.com/stable/linux_signing_key.pub', 
+  }
+}
 
 #apt::source {'docker':
 #  comment => 'docker', 
@@ -149,19 +163,6 @@ apt::source {'google-chrome':
 #    'src' => true,
 #  },
 #}
-
-
-
-# Steam src?
-
-
-
-
-# Discord
-# Slack
-# Burp
-# Vivaldi
-
 
 file {"/home/${config_user}/git":
   ensure => 'directory', 
