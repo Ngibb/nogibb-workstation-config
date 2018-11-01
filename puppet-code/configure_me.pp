@@ -250,3 +250,5 @@ file {"/etc/opt/chrome/policies/managed/kerb.json":
 include "ngibb_config::${host_type}"
 
 include "ngibb_config::terraform"
+
+include "ngibb_config::okta_aws_cli"
