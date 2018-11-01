@@ -61,6 +61,9 @@ $wanted_packages = [
 	'jq',
 	'ddd', #debugger
 	'redshift', #TODO: Configure this have it pull from a config file
+	'libreoffice',
+	'yubioath-desktop',
+	'unzip',
 	# Require other repos
         'spotify-client',
 	'google-chrome-stable',
@@ -245,3 +248,5 @@ file {"/etc/opt/chrome/policies/managed/kerb.json":
 #}
 
 include "ngibb_config::${host_type}"
+
+include "ngibb_config::terraform"
