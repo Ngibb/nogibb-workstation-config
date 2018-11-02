@@ -60,9 +60,12 @@ export EDITOR="/usr/bin/vim"
 source $ZSH/oh-my-zsh.sh
 
 # dir sourcing
-# Load all files from .shell/zshrc.d directory
+# Load all files from .zshrc.d directory
 if [ -d $HOME/.zshrc.d ]; then
   for file in $HOME/.zshrc.d/*.zsh; do
     source $file
   done
 fi
+
+alias okta-aws='java -jar /home/ngibb/.okta/okta-aws-cli.jar'
+

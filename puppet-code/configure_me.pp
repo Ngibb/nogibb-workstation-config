@@ -15,6 +15,7 @@
 # Vars
 
 $config_user = 'ngibb'
+$zshrc_dir = "/home/${config_user}/.zshrc.d"
 $workstation_config_dir = "/home/${config_user}/git/workstation-config"
 $static_config_dir = "${workstation_config_dir}/puppet-code/ngibb_config"
 
@@ -195,6 +196,12 @@ file {"/home/${config_user}/.zshrc":
   target => "${static_config_dir}/files/zshrc", 
 }
 
+file {$zshrc_dir:
+  ensure => 'directory', 
+  owner => $config_user,
+  group => $config_user,
+}
+
 file {"/root/.zshrc":
   ensure => 'link', 
   target => "/home/${config_user}/.zshrc", 
@@ -209,7 +216,6 @@ file {"/etc/motd":
   ensure => 'link', 
   target => "${static_config_dir}/files/${facts['hostname']}-motd",
 }
-
 
 exec {"clone-ngibb-zsh":
   user => $config_user,
@@ -229,7 +235,6 @@ file {"/etc/puppet/code/modules/ngibb_config":
   ensure => 'link', 
   target => "/home/${config_user}/git/workstation-config/puppet-code/ngibb_config", 
 }
-
 
 user{$config_user:
   ensure => present,

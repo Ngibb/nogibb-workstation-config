@@ -1,0 +1,1 @@
+alias okta-aws=‘/usr/bin/java -jar ~/.okta/okta-aws-cli.jar’
