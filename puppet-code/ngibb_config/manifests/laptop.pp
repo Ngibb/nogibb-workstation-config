@@ -7,5 +7,7 @@ class ngibb_config::laptop {
 	# exec, rekick the module
 	# modprobe -r iwlwifi ; modprobe iwlwifi
 
+	include ngibb_config::not_workstation
+
 }
 
