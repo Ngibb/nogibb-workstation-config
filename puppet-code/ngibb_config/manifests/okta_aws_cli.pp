@@ -37,6 +37,7 @@ class ngibb_config::okta_aws_cli {
 	  ensure => "present",
 	}
 
+	# I don't know if this will be required on everyone
 	#package{"libcanberra-gtk-module":
 	#  ensure => "present",
 	#}
@@ -46,6 +47,11 @@ class ngibb_config::okta_aws_cli {
 	  owner => $config_user,
           group => $config_user,
 	}
+
+	# leaving commented, don't know if all hosts will need
+	#package {"openjfx":
+	#  ensure => "present",
+	#}
 
 }
 
