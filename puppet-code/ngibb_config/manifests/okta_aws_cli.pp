@@ -8,22 +8,16 @@ class ngibb_config::okta_aws_cli {
 	  ensure => "directory",
           path => $okta_config_dir ,
 	  backup => ".backup",
-	  owner => $config_user,
-          group => $config_user,
 	}
 
 	file{"${okta_config_dir}/config.properties":
           content => file("${module_name}/config.properties"),
   	  require => File["okta_aws_cli_config_dir"],
-	  owner => $config_user,
-          group => $config_user,
 	}
 
 	file{"${okta_config_dir}/bash_functions":
           content => file("${module_name}/okta_bash_functions"),
   	  require => File["okta_aws_cli_config_dir"],
-	  owner => $config_user,
-          group => $config_user,
 	}
 
         exec {"okta_aws_cli_jar":
@@ -44,8 +38,6 @@ class ngibb_config::okta_aws_cli {
 
 	file{"${zshrc_dir}/okta_aws.zsh":
           content => file("${module_name}/zshrcd/okta_aws"),
-	  owner => $config_user,
-          group => $config_user,
 	}
 
 	# leaving commented, don't know if all hosts will need

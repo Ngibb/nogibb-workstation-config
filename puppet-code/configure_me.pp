@@ -11,6 +11,8 @@
 # gron, make json greppable
 # Discord
 # Burp
+# virtual box
+# refactor some crap
 
 # Vars
 
@@ -26,6 +28,11 @@ $host_type = $facts['hostname'] ? {
   'default'      => '', 
 }
 
+File {
+  backup => ".backup",
+  owner => $config_user,
+  group => $config_user,
+}
 
 $wanted_packages = [
 	'aptitude',
@@ -198,13 +205,13 @@ file {"/home/${config_user}/.zshrc":
 
 file {$zshrc_dir:
   ensure => 'directory', 
-  owner => $config_user,
-  group => $config_user,
 }
 
 file {"/root/.zshrc":
   ensure => 'link', 
   target => "/home/${config_user}/.zshrc", 
+  owner => root,
+  group => root,
 }
 
 file {"/home/${config_user}/.config/terminator/config":
@@ -215,6 +222,8 @@ file {"/home/${config_user}/.config/terminator/config":
 file {"/etc/motd":
   ensure => 'link', 
   target => "${static_config_dir}/files/${facts['hostname']}-motd",
+  owner => root,
+  group => root,
 }
 
 exec {"clone-ngibb-zsh":
@@ -234,6 +243,8 @@ file {"/home/${config_user}/.oh-my-zsh/.nolan.zsh-theme":
 file {"/etc/puppet/code/modules/ngibb_config":
   ensure => 'link', 
   target => "/home/${config_user}/git/workstation-config/puppet-code/ngibb_config", 
+  owner => root,
+  group => root,
 }
 
 user{$config_user:
@@ -245,6 +256,8 @@ user{$config_user:
 file {"/etc/opt/chrome/policies/managed/kerb.json":
   ensure => 'file',
   source => ["puppet:///modules/ngibb_config/google-chrome/kerb.json",],
+  owner => root,
+  group => root,
 }
 
 #file {"/home/ngibb/.config/google-chrome/Default/Bookmarks":
@@ -257,3 +270,5 @@ include "ngibb_config::${host_type}"
 include "ngibb_config::terraform"
 
 include "ngibb_config::okta_aws_cli"
+
+
