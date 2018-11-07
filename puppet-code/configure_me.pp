@@ -271,4 +271,5 @@ include "ngibb_config::terraform"
 
 include "ngibb_config::okta_aws_cli"
 
+include "ngibb_config::emoji_support"
 
