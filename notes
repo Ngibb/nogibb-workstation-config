@@ -24,6 +24,8 @@ apt install steam
 ##echo "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam" >> /etc/apt/sources.list.d/steam.list
 ##echo "deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam" >> /etc/apt/sources.list.d/steam.list
 
+https://wiki.debian.org/Steam
+
 #discord
 cd /tmp
 wget https://discordapp.com/api/download?platform=linux&format=deb -O discord.deb
@@ -44,4 +46,4 @@ wget -O /tmp/burpsuite.jar https://portswigger.net/burp/releases/download\?produ
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-
+https://code.visualstudio.com/docs/setup/linux
