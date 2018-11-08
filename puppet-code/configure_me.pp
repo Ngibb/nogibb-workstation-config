@@ -1,3 +1,4 @@
+# Configure my computer!
 # TODO:
 # ngibb shell
 # oh-my-zsh
@@ -198,22 +199,6 @@ file {"/home/${config_user}/.vimrc":
   target => "${static_config_dir}/files/vimrc", 
 }
 
-file {"/home/${config_user}/.zshrc":
-  ensure => 'link', 
-  target => "${static_config_dir}/files/zshrc", 
-}
-
-file {$zshrc_dir:
-  ensure => 'directory', 
-}
-
-file {"/root/.zshrc":
-  ensure => 'link', 
-  target => "/home/${config_user}/.zshrc", 
-  owner => root,
-  group => root,
-}
-
 file {"/home/${config_user}/.config/terminator/config":
   ensure => 'link', 
   target => "${static_config_dir}/files/terminator_config", 
@@ -226,20 +211,6 @@ file {"/etc/motd":
   group => root,
 }
 
-exec {"clone-ngibb-zsh":
-  user => $config_user,
-  cwd => "/home/${config_user}/git",
-  command => "/usr/bin/git clone  https://github.com/Ngibb/nolan-omzsh-theme.git", 
-  require => File["/home/${config_user}/git"],
-  creates => "/home/${config_user}/git/nolan-omzsh-theme",
-}
-
-file {"/home/${config_user}/.oh-my-zsh/.nolan.zsh-theme":
-  ensure => 'link', 
-  target => "/home/${config_user}/git/nolan-omzsh-theme/.nolan.zsh-theme", 
-  #require => "Exec['clone-ngibb-zsh']", 
-}
-
 file {"/etc/puppet/code/modules/ngibb_config":
   ensure => 'link', 
   target => "/home/${config_user}/git/workstation-config/puppet-code/ngibb_config", 
@@ -247,7 +218,7 @@ file {"/etc/puppet/code/modules/ngibb_config":
   group => root,
 }
 
-user{$config_user:
+user{ $config_user:
   ensure => present,
   shell => "/usr/bin/zsh",
   require => "Package[zsh]"
@@ -273,3 +244,4 @@ include "ngibb_config::okta_aws_cli"
 
 include "ngibb_config::emoji_support"
 
+include "ngibb_config::zsh_setup"
