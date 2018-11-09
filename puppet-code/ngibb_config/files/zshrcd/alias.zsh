@@ -33,5 +33,8 @@ alias s_client="openssl s_client -connect"
 alias readreq="openssl req -text -in"
 
 
-#date time
+# date time
 alias today="date '+%Y-%m-%d'"
+
+# get random strings
+alias rstrings='strings -n8 /dev/urandom | egrep "[a-zA-Z0-9]{8}"'
