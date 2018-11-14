@@ -8,5 +8,8 @@ class ngibb_config::terraform {
           path => "/bin/:/usr/bin", 
 	}
 
+	file{"${zshrc_dir}/terrafrom_tab_complete.zsh":
+          content => file("${module_name}/zshrcd/terraform_tab_complete.zsh"),
+	}
 }
 

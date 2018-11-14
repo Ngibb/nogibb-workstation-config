@@ -59,6 +59,8 @@ export EDITOR="/usr/bin/vim"
 
 source $ZSH/oh-my-zsh.sh
 
+autoload -U +X bashcompinit && bashcompinit
+
 # dir sourcing
 # Load all files from .zshrc.d directory
 if [ -d $HOME/.zshrc.d ]; then
@@ -68,4 +70,5 @@ if [ -d $HOME/.zshrc.d ]; then
 fi
 
 alias okta-aws='java -jar /home/ngibb/.okta/okta-aws-cli.jar'
+
 
