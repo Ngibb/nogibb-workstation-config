@@ -245,3 +245,5 @@ include "ngibb_config::okta_aws_cli"
 include "ngibb_config::emoji_support"
 
 include "ngibb_config::zsh_setup"
+
+include "ngibb_config::vscode"
