@@ -13,11 +13,6 @@ apt install steam
 
 https://wiki.debian.org/Steam
 
-#discord
-cd /tmp
-wget https://discordapp.com/api/download?platform=linux&format=deb -O discord.deb
-aptitude install -f discord.deb
-
 #burp suite with saml-raider
 wget -O /tmp/burpsuite.jar https://portswigger.net/burp/releases/download\?product=community\&version=1.7.32\&type=jar
 

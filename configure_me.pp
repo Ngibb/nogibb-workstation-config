@@ -92,4 +92,5 @@ include "desktop_config::apps::irssi"
 include "desktop_config::apps::terminator"
 include "desktop_config::apps::vim"
 include "desktop_config::apps::git"
+include "desktop_config::apps::discord"
 class{"desktop_config::apps::redshift":}
