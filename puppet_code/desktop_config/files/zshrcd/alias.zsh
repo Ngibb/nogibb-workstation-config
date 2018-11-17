@@ -1,9 +1,6 @@
 #config zsh
 alias zshconfig="vim ~/.zshrc"
 
-#burp suite
-alias burp="nohup java -jar ~/bin/burpsuite &"
-
 #chrome
 alias okta="google-chrome --new-window smartsheet.okta.com"
 alias bugcrowd="google-chrome --new-window tracker.bugcrowd.com"

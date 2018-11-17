@@ -13,7 +13,7 @@ apt install steam
 
 https://wiki.debian.org/Steam
 
-#burp suite with saml-raider
+#burp suite with saml-raider && config files
 wget -O /tmp/burpsuite.jar https://portswigger.net/burp/releases/download\?product=community\&version=1.7.32\&type=jar
 
 
