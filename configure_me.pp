@@ -94,4 +94,6 @@ include "desktop_config::apps::vim"
 include "desktop_config::apps::git"
 include "desktop_config::apps::discord"
 include "desktop_config::apps::burp"
-class{"desktop_config::apps::redshift":}
+include "desktop_config::apps::steam"
+include "desktop_config::apps::redshift"
+include "desktop_config::apps::virtualbox"

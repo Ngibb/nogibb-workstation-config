@@ -1,21 +1,13 @@
-## iptables is `sudo crontab -e`
-# TODO:
-
-virtual box
+# Keep in mind:
+iptables is `sudo crontab -e`
+pull from contrib and non free
+install puppet somewhere?
 sync keypass for non workstation nodes
 
-#steam
-dpkg --add-architecture i386
-sudo apt update
-apt install steam
-##echo "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam" >> /etc/apt/sources.list.d/steam.list
-##echo "deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam" >> /etc/apt/sources.list.d/steam.list
-
-https://wiki.debian.org/Steam
+# TODO:
 
 #burp suite with saml-raider && config files
 wget -O /tmp/burpsuite.jar https://portswigger.net/burp/releases/download\?product=community\&version=1.7.32\&type=jar
-
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
@@ -27,8 +19,4 @@ ssh authorized keys
 fail2ban
 ultitail 
 gron, make json greppable
-Discord
-Burp
-virtual box
-
-
+selinux vim plugin
