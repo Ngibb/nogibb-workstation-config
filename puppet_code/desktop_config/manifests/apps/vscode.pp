@@ -1,7 +1,7 @@
-# config::vscode
+# desktop_config::apps::vscode
 # code --help
 
-class ngibb_config::vscode {
+class desktop_config::apps::vscode {
  
   # configure source for package
   apt::source {'vscode':

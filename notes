@@ -1,21 +1,8 @@
 ## iptables is `sudo crontab -e`
+# TODO:
 
 virtual box
 sync keypass for non workstation nodes
-
-#chrome
-cd /tmp	
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-aptitude -f install google-chrome-stable_current_amd64.deb
-##echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
-##wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-
-#spotify
-sudo apt install dirmngr
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0DF731E45CE24F27EEEB1450EFDC8610341D9410
-echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list.d/spotify.list
-sudo apt update
-sudo apt install spotify-client
 
 #steam
 dpkg --add-architecture i386
@@ -31,19 +18,23 @@ cd /tmp
 wget https://discordapp.com/api/download?platform=linux&format=deb -O discord.deb
 aptitude install -f discord.deb
 
-#slack
-wget -O slack.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-3.0.5-amd64.deb
-dpkg -i slack.deb
-aptitude -f install slack.deb
-
 #burp suite with saml-raider
-
-#vivladi
-#echo "deb http://repo.vivaldi.com/stable/deb/ stable main" >> /etc/apt/sources.list.d/vivaldi.list
-#deb http://repo.vivaldi.com/stable/deb/ stable main
-
 wget -O /tmp/burpsuite.jar https://portswigger.net/burp/releases/download\?product=community\&version=1.7.32\&type=jar
+
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-https://code.visualstudio.com/docs/setup/linux
+ngibb  bash shell
+  dot files
+oh-my-zsh
+oh my zsh theme
+vim rc set t_BE= vim linux middle click 
+ssh authorized keys
+fail2ban
+ultitail 
+gron, make json greppable
+Discord
+Burp
+virtual box
+
+

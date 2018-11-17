@@ -1,2 +1,6 @@
 # ngibb-workspace-setup
-I am lazy enough to make one of these, but not lazy enough to make a good one.
+How to use:
+1. Clone
+2. Change the configs are decent
+3. Make sure the simlink to the puppet dir is right
+4. Enjoy

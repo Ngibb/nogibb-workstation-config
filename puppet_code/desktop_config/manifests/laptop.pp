@@ -1,5 +1,5 @@
-# ngibb_config_laptop
-class ngibb_config::laptop {
+# desktop_config_laptop
+class desktop_config::laptop {
 	# Intel wifidrivers
 	package { 'firmware-iwlwifi':
 		ensure => installed 
@@ -7,7 +7,7 @@ class ngibb_config::laptop {
 	# exec, rekick the module
 	# modprobe -r iwlwifi ; modprobe iwlwifi
 
-	include ngibb_config::not_workstation
+	include desktop_config::not_workstation
 
 }
 

@@ -1,9 +1,8 @@
-# ngibb_config::zsh_setup
+# desktop_config::zsh_setup
 
-class ngibb_config::zsh_setup {
+class desktop_config::zsh_setup {
   file {"/home/${config_user}/.zshrc":
-    ensure => 'link',
-    target => "${static_config_dir}/files/zshrc",
+    content => file("${module_name}/zshrc"),
   }
   
   file {$zshrc_dir:
@@ -43,5 +42,13 @@ class ngibb_config::zsh_setup {
       content => file("${module_name}/zshrcd/${my_package}"),
     }  
   }
+
+  # configure_me_alias
+  # The root puppet code file you are using to define your desktop 
+  # This file for me
+  $configure_me_file = "${workstation_config_dir}/configure_me.pp"
+  file{"${zshrc_dir}/configure_me.zsh":
+    content => template("${module_name}/zshrcd/configure_me.zsh.erb"),
+  }  
 }
 

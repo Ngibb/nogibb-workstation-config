@@ -1,6 +1,6 @@
-# ngibb_config::okta_aws_cli
+# desktop_config::apps::okta_aws_cli
 
-class ngibb_config::okta_aws_cli {
+class desktop_config::apps::okta_aws_cli {
 
 	$okta_config_dir = "/home/${config_user}/.okta"
 
@@ -37,7 +37,7 @@ class ngibb_config::okta_aws_cli {
 	#}
 
 	file{"${zshrc_dir}/okta_aws.zsh":
-          content => file("${module_name}/zshrcd/okta_aws"),
+          content => file("${module_name}/zshrcd/okta_aws.zsh"),
 	}
 
 	# leaving commented, don't know if all hosts will need
