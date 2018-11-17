@@ -82,6 +82,7 @@ include "desktop_config::motd"
 
 include "desktop_config::zsh_setup"
 include "desktop_config::emoji_support"
+include "desktop_config::gnome_settings"
 
 include "desktop_config::apps::terraform"
 include "desktop_config::apps::okta_aws_cli"
