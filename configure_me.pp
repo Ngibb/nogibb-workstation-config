@@ -3,7 +3,8 @@
 # Vars
 # User who this is being configed for
 $config_user = 'ngibb'
-$zshrc_dir = "/home/${config_user}/.zshrc.d"
+$config_user_home_dir = "/home/${config_user}"
+$zshrc_dir = "${config_user_home_dir}/.zshrc.d"
 # where this git repo lives
 $workstation_config_dir = "/home/${config_user}/git/workstation-config"
 # puppet code from the git repo, there will be link from /etc/puppet dir
@@ -57,7 +58,6 @@ $wanted_packages = [
 	'imagemagick',
 	'jq',
 	'ddd', #debugger
-	'redshift', #TODO: Configure this have it pull from a config file
 	'libreoffice',
 	'yubioath-desktop',
 	'unzip',
@@ -92,3 +92,4 @@ include "desktop_config::apps::irssi"
 include "desktop_config::apps::terminator"
 include "desktop_config::apps::vim"
 include "desktop_config::apps::git"
+class{"desktop_config::apps::redshift":}
