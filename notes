@@ -6,12 +6,8 @@ sync keypass for non workstation nodes
 
 # TODO:
 
-#burp suite with saml-raider && config files
-
-oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
+selinux
+sane ssh config
 ssh authorized keys
 fail2ban
 selinux vim syntax files
-selinux
