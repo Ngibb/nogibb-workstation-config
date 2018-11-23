@@ -17,6 +17,10 @@ class desktop_config::zsh_setup {
     creates => "/home/${config_user}/git/nolan-omzsh-theme",
   }
   
+  file{"${config_user_home_dir}/.zshrc.vanilla":
+    content => file("${module_name}/zsh/zshrc.prompt"),
+  }  
+  
   file {"/home/${config_user}/.oh-my-zsh/.nolan.zsh-theme":
     ensure => 'link', 
     target => "/home/${config_user}/git/nolan-omzsh-theme/.nolan.zsh-theme", 

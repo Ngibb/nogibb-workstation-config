@@ -31,7 +31,23 @@ alias readreq="openssl req -text -in"
 
 
 # date time
-alias today="date '+%Y-%m-%d'"
+alias date.short="date +%Y-%m-%d"
+alias date.long="date +%Y-%m-%d-%H%M%S"
 
 # get random strings
 alias rstrings='strings -n8 /dev/urandom | egrep "[a-zA-Z0-9]{8}"'
+
+
+# jump jump jump around
+# jump up jump up and get down
+alias ..="cd .."
+alias ..2="cd ../.."
+alias ..3="cd ../../.."
+alias ..4="cd ../../../.."
+alias ..5="cd ../../../../.."
+alias ..6="cd ../../../../../.."
+alias ..7="cd ../../../../../../.."
+
+
+# elite sudo
+alias zs='sudo -i zsh'

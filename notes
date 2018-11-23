@@ -10,13 +10,11 @@ sync keypass for non workstation nodes
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-ngibb  bash shell
-  dot files
 oh-my-zsh
-vim rc set t_BE= vim linux middle click 
 ssh authorized keys
 fail2ban
 ultitail 
 gron, make json greppable
-selinux vim plugin
+selinux vim syntax files
+selinux
 backgroud and user picture w/ defaults 

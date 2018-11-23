@@ -1,5 +1,68 @@
-set hlsearch
-syntax on
-set viminfo='20,<1000
+ZSH_THEME="../../.nolan"
+" make it so the long lines show up
 set display=lastline
+
+" hl all findings
+set hlsearch
+
+" syntax hl
+syntax on
+
+" ??
+set viminfo='20,<1000
 set t_BE=
+
+" line numbers
+set number
+
+" history and tmp
+set history=1000
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+" The following are commented out as they cause vim to behave a lot
+" differently from regular Vi. They are highly recommended though.
+"set showcmd		" Show (partial) command in status line.
+set showmatch		" Show matching brackets.
+set ignorecase		" Do case insensitive matching
+"set smartcase		" Do smart case matching
+"set incsearch		" Incremental search
+"set autowrite		" Automatically save before commands like :next and :make
+"set hidden             " Hide buffers when they are abandoned
+"set mouse=a		" Enable mouse usage (all modes) in terminals
+
+" folding settings
+"set foldmethod=syntax
+"set foldnestmax=1
+"autocmd BufReadPre *.cs setlocal foldmethod=indent
+"autocmd BufReadPre *.cs setlocal foldnestmax=3
+"
+"autocmd BufReadPre *.py setlocal foldmethod=indent
+"autocmd BufReadPre *.py setlocal foldnestmax=3
+"
+"autocmd BufReadPre *.rb setlocal foldmethod=indent
+"autocmd BufReadPre *.rb setlocal foldnestmax=3
+
+" PEP8 settings
+"autocmd BufNewFile,BufRead *.py setlocal textwidth=80
+autocmd BufNewFile,BufRead *.py setlocal tabstop=4
+autocmd BufNewFile,BufRead *.py setlocal softtabstop=4
+autocmd BufNewFile,BufRead *.py setlocal shiftwidth=4
+autocmd BufNewFile,BufRead *.py setlocal smarttab
+autocmd BufNewFile,BufRead *.py setlocal expandtab
+
+" puppet style settings
+autocmd BufNewFile,BufRead *.pp setlocal tabstop=2
+autocmd BufNewFile,BufRead *.pp setlocal shiftwidth=2
+autocmd BufNewFile,BufRead *.pp setlocal expandtab
+
+" ruby style settings
+autocmd BufNewFile,BufRead *.rb setlocal tabstop=2
+autocmd BufNewFile,BufRead *.rb setlocal shiftwidth=2
+autocmd BufNewFile,BufRead *.rb setlocal expandtab
+
+" load pathogen if it exists
+runtime! autoload/pathogen.vim
+if exists("g:loaded_pathogen")
+  call pathogen#infect()
+endif

@@ -54,10 +54,13 @@ ZSH_THEME="../../.nolan"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+if [[ -v ZSH_THEME ]];then
+  source $ZSH/oh-my-zsh.sh
+else
+  source $HOME/.zshrc.vanilla
+fi
 
 export EDITOR="/usr/bin/vim"
-
-source $ZSH/oh-my-zsh.sh
 
 autoload -U +X bashcompinit && bashcompinit
 
@@ -68,7 +71,4 @@ if [ -d $HOME/.zshrc.d ]; then
     source $file
   done
 fi
-
-alias okta-aws='java -jar /home/ngibb/.okta/okta-aws-cli.jar'
-
 

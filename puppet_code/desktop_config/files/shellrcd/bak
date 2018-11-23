@@ -1,0 +1,38 @@
+# simple backup script
+#
+# perform a `date.cp` on a file for local backup purposes
+
+bak() {
+	# set up our directories so we can check validity
+	BACKUP_ROOT=$HOME/backup
+	DST_PATH=$BACKUP_ROOT/$PWD
+
+	if [ -z $HOME ]
+	then
+		# not having a $HOME could potentially lead to unsafe
+		# operations on the root directory (/)
+		echo "you are somehow missing a \$HOME variable."
+		return 2
+	fi
+
+	# see if we have a non-directory for a $BACKUP_ROOT
+	if [ -e $BACKUP_ROOT ]
+	then
+		if [ ! -d $BACKUP_ROOT ]
+		then
+			echo "your \$BACKUP_ROOT is not a directory"
+			return 2
+		fi
+	fi
+
+	# don't do anything without a target
+	if [ -z $1 ]
+	then
+		echo "provide a file or directory to backup"
+		return 1
+	fi
+
+	# do the actual work
+	mkdir -p $DST_PATH
+	cp -r $1 $DST_PATH/$1-`date +%F.%H%M%S`
+}
