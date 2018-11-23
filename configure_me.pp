@@ -5,6 +5,7 @@
 $config_user = 'ngibb'
 $config_user_home_dir = "/home/${config_user}"
 $zshrc_dir = "${config_user_home_dir}/.zshrc.d"
+$bashrc_dir = "${config_user_home_dir}/.bashrc.d"
 # where this git repo lives
 $workstation_config_dir = "/home/${config_user}/git/workstation-config"
 # puppet code from the git repo, there will be link from /etc/puppet dir
@@ -81,6 +82,7 @@ include "desktop_config::${host_type}"
 include "desktop_config::motd"
 
 include "desktop_config::zsh_setup"
+include "desktop_config::bash_setup"
 include "desktop_config::emoji_support"
 include "desktop_config::gnome_settings"
 

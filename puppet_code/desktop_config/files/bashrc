@@ -1,0 +1,61 @@
+# nolan.gibb bashrc
+# updated for use in development
+
+# test for an interactive shell
+# from gentoo /etc/bash/bashrc
+if [[ $- != *i* ]] ; then
+        # Shell is non-interactive.  Be done now!
+        return
+fi
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# lame default prompt in case something breaks
+export PS1='\h:\w$ '
+
+# set a fancy prompt (non-color, unless we know we want color)
+case $TERM in
+   xterm* | screen* | linux | sun-color)
+      case $EUID in
+         # RED / YELLOW for root
+         0) PS1='\[\033[01;31m\]\u@\h\[\033[00m\]\[\033[01;33m\]:\w\[\033[00m\]\$ ' ;;
+
+         # green / blue for users
+         *) PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ ' ;;
+      esac ;;
+   *)
+      PS1='\h:\w$ ' ;;
+esac
+
+# comprehensive colorized 'ls' with file flags
+eval `dircolors`
+case $EUID in
+   0) export LS_OPTIONS='--color=auto -aF' ;;
+   *) export LS_OPTIONS='--color=auto -F' ;;
+esac
+alias ls='ls $LS_OPTIONS'
+
+# color grep
+alias grep='grep --color=auto'
+
+# Some more alias to avoid making mistakes:
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# the One True Path
+export EDITOR='vim'
+
+# responsible umask
+umask 022
+
+
+# dir sourcing
+# Load all files from .bashrc.d directory
+if [ -d $HOME/.bashrc.d ]; then
+  for file in $HOME/.bashrc.d/*.sh; do
+    source $file
+  done
+fi

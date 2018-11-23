@@ -20,7 +20,10 @@ class desktop_config::apps::burp(
   }
 
   file{"${zshrc_dir}/burp.zsh":
-    content => template("${module_name}/zshrcd/burp.zsh.erb"),
+    content => template("${module_name}/shellrcd/burp.erb"),
+  }
+  file{"${bashrc_dir}/burp.sh":
+    content => template("${module_name}/shellrcd/burp.erb"),
   }
 }
 

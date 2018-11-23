@@ -37,7 +37,10 @@ class desktop_config::apps::okta_aws_cli {
 	#}
 
 	file{"${zshrc_dir}/okta_aws.zsh":
-          content => file("${module_name}/zshrcd/okta_aws.zsh"),
+          content => file("${module_name}/shellrcd/okta_aws"),
+	}
+	file{"${bashrc_dir}/okta_aws.sh":
+          content => file("${module_name}/shellrcd/okta_aws"),
 	}
 
 	# leaving commented, don't know if all hosts will need

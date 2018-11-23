@@ -31,15 +31,15 @@ class desktop_config::zsh_setup {
   }
  
   $zshrc_files = [
-    'alias.zsh',
-    'localdev.zsh',
-    'man.zsh',
-    'vault.zsh',
+    'alias',
+    'localdev',
+    'man',
+    'vault',
   ]
 
   $zshrc_files.each |String $my_package|{
-    file{"${zshrc_dir}/${my_package}":
-      content => file("${module_name}/zshrcd/${my_package}"),
+    file{"${zshrc_dir}/${my_package}.zsh":
+      content => file("${module_name}/shellrcd/${my_package}"),
     }  
   }
 
@@ -48,7 +48,7 @@ class desktop_config::zsh_setup {
   # This file for me
   $configure_me_file = "${workstation_config_dir}/configure_me.pp"
   file{"${zshrc_dir}/configure_me.zsh":
-    content => template("${module_name}/zshrcd/configure_me.zsh.erb"),
+    content => template("${module_name}/shellrcd/configure_me.erb"),
   }  
 }
 
