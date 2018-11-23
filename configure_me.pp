@@ -62,6 +62,7 @@ $wanted_packages = [
 	'libreoffice',
 	'yubioath-desktop',
 	'unzip',
+	'multitail',
 ]
 
 # Packages we want / are useful
