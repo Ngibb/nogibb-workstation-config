@@ -29,7 +29,15 @@ class desktop_config::gnome_settings {
           "path"  => "org.gnome.shell.overrides",
           "key"   => "workspaces-only-on-primary",
           "value" => "true",
-    	},
+        },{
+          "path"  => "org.gnome.desktop.background",
+          "key"   => "picture-uri",
+          "value" => "'${config_user_home_dir}/Pictures/background'",
+        },{
+          "path"  => "org.gnome.desktop.screensaver",
+          "key"   => "picture-uri",
+          "value" => "'${config_user_home_dir}/Pictures/screensaver'",
+    	  },
    ]
 
   $gnome_config.each |Hash $def_hash|{
@@ -39,6 +47,35 @@ class desktop_config::gnome_settings {
       unless  => "gsettings get ${def_hash[path]} ${def_hash[key]} | grep -q \"${def_hash[value]}\"",
       path    => "/bin:/usr/bin/"
     }
+  }
+
+  file {"${config_user_home_dir}/Pictures/background":
+    ensure => 'file', 
+    source => [
+      "puppet:///${desktop_config_dir}/files/images/${facts['hostname']}-background",
+      "puppet:///${desktop_config_dir}/files/images/${host_type}-background",
+      "puppet:///${desktop_config_dir}/files/images/default-background",
+    ]
+  }
+
+  file {"${config_user_home_dir}/Pictures/icon":
+    ensure => 'file', 
+    source => [
+      "puppet:///${desktop_config_dir}/files/images/${facts['hostname']}-icon",
+      "puppet:///${desktop_config_dir}/files/images/${host_type}-icon",
+      "puppet:///${desktop_config_dir}/files/images/default-icon",
+    ]
+  }
+
+  file {"${config_user_home_dir}/Pictures/screensaver":
+    ensure => 'file', 
+    source => [
+      "puppet:///${desktop_config_dir}/files/images/${facts['hostname']}-screensaver",
+      "puppet:///${desktop_config_dir}/files/images/${host_type}-screensaver",
+      "puppet:///${desktop_config_dir}/files/images/${facts['hostname']}-background",
+      "puppet:///${desktop_config_dir}/files/images/${host_type}-background",
+      "puppet:///${desktop_config_dir}/files/images/default-background",
+    ]
   }
 
 }

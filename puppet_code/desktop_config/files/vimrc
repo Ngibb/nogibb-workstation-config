@@ -1,4 +1,3 @@
-ZSH_THEME="../../.nolan"
 " make it so the long lines show up
 set display=lastline
 

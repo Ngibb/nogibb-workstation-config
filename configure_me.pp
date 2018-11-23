@@ -42,7 +42,7 @@ $wanted_packages = [
 	'cgdb',
 	'mlocate',
 	'dos2unix',
-        'openconnect',
+  'openconnect',
 	'mtr',
 	'strace',
 	'wireshark',
