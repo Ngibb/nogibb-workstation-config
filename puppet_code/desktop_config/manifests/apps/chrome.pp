@@ -26,11 +26,5 @@ class desktop_config::apps::chrome {
     group => root,
   }
 
-
-  #file {"/home/ngibb/.config/google-chrome/Default/Bookmarks":
-  #  ensure => 'link', 
-  #  target => "/home/${config_user}/git/workstation-config/puppet-code/desktop_config/files/google-chrome/Bookmarks", 
-  #}
-
 }
 

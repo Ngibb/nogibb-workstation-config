@@ -11,8 +11,8 @@ class desktop_config::apps::okta_aws_cli {
 	}
 
 	file{"${okta_config_dir}/config.properties":
-          content => file("${module_name}/config.properties"),
-  	  require => File["okta_aws_cli_config_dir"],
+    content => file("${module_name}/config.properties"),
+    require => File["okta_aws_cli_config_dir"],
 	}
 
 	file{"${okta_config_dir}/bash_functions":
@@ -29,6 +29,18 @@ class desktop_config::apps::okta_aws_cli {
 
 	package{"awscli":
 	  ensure => "present",
+	}
+
+	$aws_config_dir = "/home/${config_user}/.aws"
+
+	file{"aws_config_dir":
+	  ensure => "directory",
+    path => $aws_config_dir ,
+	}
+
+	file{"${aws_config_dir}/config":
+    content => file("${module_name}/aws_config"),
+    require => File["aws_config_dir"],
 	}
 
 	# I don't know if this will be required on everyone
