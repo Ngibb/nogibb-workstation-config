@@ -11,4 +11,3 @@ sane ssh config
 ssh authorized keys
 fail2ban
 selinux vim syntax files
-aws / okta config

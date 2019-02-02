@@ -15,6 +15,11 @@ class desktop_config::apps::okta_aws_cli {
     require => File["okta_aws_cli_config_dir"],
 	}
 
+	file{"${okta_config_dir}/profiles":
+    content => file("${module_name}/okta_profiles"),
+    require => File["okta_aws_cli_config_dir"],
+	}
+
 	file{"${okta_config_dir}/bash_functions":
           content => file("${module_name}/okta_bash_functions"),
   	  require => File["okta_aws_cli_config_dir"],
