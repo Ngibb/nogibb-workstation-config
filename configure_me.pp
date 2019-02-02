@@ -58,11 +58,14 @@ $wanted_packages = [
 	'rsync',
 	'imagemagick',
 	'jq',
-	'ddd', #debugger
+	'ddd', # debugger
 	'libreoffice',
 	'yubioath-desktop',
 	'unzip',
 	'multitail',
+  'bless', # hex editor
+  'htop',
+  'packer', # aws image creation 
 ]
 
 # Packages we want / are useful

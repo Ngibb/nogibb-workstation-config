@@ -6,8 +6,12 @@ sync keypass for non workstation nodes
 
 # TODO:
 
+vim pathogen
+ - terraform
+ - puppet
 selinux
 sane ssh config
 ssh authorized keys
 fail2ban
 selinux vim syntax files
+xboxdrv
