@@ -6,6 +6,11 @@ class desktop_config::apps::steam {
   package { "steam":
     ensure => installed
   }
+
+  # B/c it sometimes isn't installed?
+  package { "libgl1-nvidia-glvnd-glx:i386":
+    ensure => installed
+  }
   
   # adjust arch
   exec {"enable_i38":

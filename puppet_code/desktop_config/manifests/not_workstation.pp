@@ -7,8 +7,5 @@ class desktop_config::not_workstation {
 	file{"${bashrc_dir}/not_workstation.sh":
 	  content => file("${module_name}/shellrcd/not_workstation"),
 	}
-
-        include "desktop_config::apps::steam"
-	include "desktop_config::apps::discord"
 }
 

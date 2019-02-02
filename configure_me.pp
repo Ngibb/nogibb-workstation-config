@@ -15,7 +15,7 @@ $puppet_code_dir = "/etc/puppet/code/modules/"
 
 # Using the hostname to ID what kind of computer this is
 $host_type = $facts['hostname'] ? {
-  'cuiaba'	 => 'workstation',
+  'cuiaba'	     => 'workstation',
   'campo-grande' => 'homestation',
   'fatima'       => 'laptop',
   'default'      => '', 
@@ -100,7 +100,6 @@ include "desktop_config::apps::vim"
 include "desktop_config::apps::git"
 include "desktop_config::apps::discord"
 include "desktop_config::apps::burp"
-include "desktop_config::apps::steam"
 include "desktop_config::apps::redshift"
 include "desktop_config::apps::virtualbox"
 include "desktop_config::apps::gron"

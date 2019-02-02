@@ -10,5 +10,6 @@ class desktop_config::apps::vim {
     content => file("${module_name}/vimrc"),
   }
 
+  include desktop_config::apps::pathogen_vim
 }
 
