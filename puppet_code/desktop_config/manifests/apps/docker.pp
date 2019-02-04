@@ -20,5 +20,9 @@ class desktop_config::apps::docker {
    ensure => installed
   }
 
+  # Add config user to docker group
+  #srw-rw---- 1 root docker 0 Feb  4 11:05 /var/run/docker.sock
+  # sudo chmod 666 /var/run/docker.sock
+
 }
 

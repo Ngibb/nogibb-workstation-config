@@ -81,25 +81,26 @@ user{ $config_user:
   require => "Package[zsh]",
 }
 
-include "desktop_config::meta"
+include desktop_config::meta
 include "desktop_config::${host_type}"
-include "desktop_config::motd"
+include desktop_config::motd
 
-include "desktop_config::zsh_setup"
-include "desktop_config::bash_setup"
-include "desktop_config::emoji_support"
-include "desktop_config::gnome_settings"
+include desktop_config::zsh_setup
+include desktop_config::bash_setup
+include desktop_config::emoji_support
+include desktop_config::gnome_settings
 
-include "desktop_config::apps::terraform"
-include "desktop_config::apps::okta_aws_cli"
-include "desktop_config::apps::spotify"
-include "desktop_config::apps::slack"
-include "desktop_config::apps::irssi"
-include "desktop_config::apps::terminator"
-include "desktop_config::apps::vim"
-include "desktop_config::apps::git"
-include "desktop_config::apps::discord"
-include "desktop_config::apps::burp"
-include "desktop_config::apps::redshift"
-include "desktop_config::apps::virtualbox"
-include "desktop_config::apps::gron"
+include desktop_config::apps::terraform
+include desktop_config::apps::okta_aws_cli
+include desktop_config::apps::spotify
+include desktop_config::apps::slack
+include desktop_config::apps::irssi
+include desktop_config::apps::terminator
+include desktop_config::apps::vim
+include desktop_config::apps::git
+include desktop_config::apps::discord
+include desktop_config::apps::burp
+include desktop_config::apps::redshift
+include desktop_config::apps::virtualbox
+include desktop_config::apps::gron
+include desktop_config::apps::docker
