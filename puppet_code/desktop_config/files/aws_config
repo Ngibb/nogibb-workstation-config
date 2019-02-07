@@ -1,4 +1,10 @@
 [profile infosec_org_account]
 region = us-east-2
 role_arn = arn:aws:iam::786630784876:role/OrganizationAccountAccessRole
-source_profile = techops_admin
+source_profile = okta-AWS-CloudAdmin_275228270008
+
+
+[profile siem_org_account]
+region = us-east-2
+role_arn = arn:aws:iam::264877002243:role/OrganizationAccountAccessRole
+source_profile = okta-AWS-CloudAdmin_275228270008
