@@ -104,3 +104,4 @@ include desktop_config::apps::redshift
 include desktop_config::apps::virtualbox
 include desktop_config::apps::gron
 include desktop_config::apps::docker
+include desktop_config::apps::eclipse
