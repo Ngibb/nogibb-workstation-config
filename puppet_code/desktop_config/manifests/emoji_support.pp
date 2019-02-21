@@ -3,9 +3,11 @@
 
 class desktop_config::emoji_support {
 
-	package{"ttf-ancient-fonts":
-	  ensure => "present",
+  if $facts['os']['distro']['codename'] == "stretch" 
+  {
+    package{"ttf-ancient-fonts":
+	    ensure => "present",
+    }
 	}
 
 }
-
