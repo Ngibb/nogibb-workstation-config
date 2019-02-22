@@ -12,9 +12,9 @@ class desktop_config::apps::virtualbox {
       source => 'https://www.virtualbox.org/download/oracle_vbox_2016.asc',
     }
   } 
-#  package { "virtualbox-5.2":
-#    ensure => installed
-#  }
+  package { "virtualbox":
+    ensure => installed
+  }
 
 }
 
