@@ -3,17 +3,17 @@
 class desktop_config::apps::emulators {
 
   # nes
-  package { "zsnes":
-    ensure => installed
-  }
+ # package { "zsnes":
+ #   ensure => installed
+ # }
 
   # gba
   package { "visualboyadvance":
     ensure => installed
   }
-  package { "visualboyadvance-gtk":
-    ensure => installed
-  }
+  #package { "visualboyadvance-gtk":
+  #  ensure => installed
+  #}
 
 }
 

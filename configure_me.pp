@@ -60,7 +60,7 @@ $wanted_packages = [
 	'jq',
 	'ddd', # debugger
 	'libreoffice',
-	'yubioath-desktop',
+	#'yubioath-desktop',
 	'unzip',
 	'multitail',
   'bless', # hex editor
@@ -85,11 +85,14 @@ include desktop_config::meta
 include "desktop_config::${host_type}"
 include desktop_config::motd
 
+include desktop_config::debian_sources
+
 include desktop_config::zsh_setup
 include desktop_config::bash_setup
 include desktop_config::emoji_support
 include desktop_config::gnome_settings
 
+include desktop_config::apps::chrome
 include desktop_config::apps::terraform
 include desktop_config::apps::okta_aws_cli
 include desktop_config::apps::spotify

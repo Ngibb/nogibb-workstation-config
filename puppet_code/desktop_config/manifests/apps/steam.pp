@@ -3,6 +3,7 @@
 class desktop_config::apps::steam {
 
   # install package
+  # have to accept the license manually
   package { "steam":
     ensure => installed
   }

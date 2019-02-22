@@ -5,9 +5,13 @@ helper script to install puppet
 sync keypass for non workstation nodes
 
 # TODO:
-
+manual install oh-my-zsh as root
 selinux
 sane ssh config
 ssh authorized keys
 fail2ban
 selinux vim syntax files
+
+# Deb 10(buster) issues
+ yubioath only in stretch
+ virtualbox... oof need libcurl3
