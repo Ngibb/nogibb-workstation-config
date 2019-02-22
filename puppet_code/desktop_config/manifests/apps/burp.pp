@@ -1,7 +1,6 @@
 # desktop_config::apps::burp
 # TODO: Install SAML raider and other plugins, load from a config file
-
-
+# TODO: Look at java version
 
 class desktop_config::apps::burp(
   $edition = "community", 

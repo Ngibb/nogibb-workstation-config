@@ -18,10 +18,6 @@ class desktop_config::gnome_settings {
           "key"   => "clock-show-date",
           "value" => "true",
         },{
-          "path"  => "org.gnome.shell.extensions.classic-overrides",
-          "key"   => "button-layout",
-          "value" => "'appmenu:minimize,maximize,close'",
-        },{
           "path"  => "org.gnome.desktop.wm.preferences",
           "key"   => "action-middle-click-titlebar",
           "value" => "'lower'",

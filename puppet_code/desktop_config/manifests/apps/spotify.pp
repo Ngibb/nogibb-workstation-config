@@ -11,8 +11,7 @@ class desktop_config::apps::spotify {
       'id'     => '931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90',
       'server' => 'keyserver.ubuntu.com',
     }
-  }
-
+  } ->
   package { "spotify-client":
     ensure => installed
   }

@@ -1,5 +1,6 @@
 # desktop_config::apps::gron
 # https://github.com/tomnomnom/gron
+# TODO: Make sure the ownership of the fire is correct
 
 class desktop_config::apps::gron(
   $version = "0.6.0",

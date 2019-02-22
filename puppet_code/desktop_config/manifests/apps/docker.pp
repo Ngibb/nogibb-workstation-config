@@ -7,15 +7,13 @@ class desktop_config::apps::docker {
     comment => 'docker', 
     architecture => 'amd64',
     location => 'https://download.docker.com/linux/debian/',
-    release => 'stretch',
+    release => "${facts['os']['distro']['codename']}",
     repos => 'stable',
     key => {
       id     => '9DC858229FC7DD38854AE2D88D81803C0EBFCD88',
       source => 'https://download.docker.com/linux/debian/gpg',
     },
-  }
-
-  # Is this even right? 
+  } ->
   package { "docker-ce":
    ensure => installed
   }
