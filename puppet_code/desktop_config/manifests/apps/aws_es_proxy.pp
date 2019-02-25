@@ -24,5 +24,12 @@ class desktop_config::apps::aws_es_proxy(
    group => $config_user,
    mode  => "u+x",
   }
+
+  file {"${install_dir}/aws_kibana_wrapper.rb":
+   owner   => $config_user,
+   group   => $config_user,
+   mode    => "u+x",
+   content => file("${module_name}/aws_okta/aws_kibana_wrapper.rb"),
+  }
 }
 

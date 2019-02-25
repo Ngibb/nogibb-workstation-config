@@ -32,17 +32,16 @@ class desktop_config::apps::aws_okta_cli {
 	}
 
 	file{"${aws_config_dir}/config":
-    content => file("${module_name}/aws_okta_config"),
+    content => file("${module_name}/aws_okta/aws_okta_config"),
     require => File["aws_config_dir"],
 	}
 
 # export AWS_OKTA_BACKEND=file
-#
-#	file{"${zshrc_dir}/aws_okta.zsh":
-#          content => file("${module_name}/shellrcd/aws_okta"),
-#	}
-#	file{"${bashrc_dir}/aws_okta.sh":
-#          content => file("${module_name}/shellrcd/aws_okta"),
-#	}
+	file{"${zshrc_dir}/aws_okta.zsh":
+    content => file("${module_name}/aws_okta/aws_okta_rc"),
+	}
+	file{"${bashrc_dir}/aws_okta.sh":
+    content => file("${module_name}/aws_okta/aws_okta_rc"),
+	}
 
 }

@@ -1,7 +1,0 @@
-[profile cloudadmin]
-aws_saml_url = home/amazon_aws/0oa6r2v5bhLzJewbS1t7/272 
-role_arn = arn:aws:iam::275228270008:role/okta-AWS-CloudAdmin
-
-[profile siem_admin]
-aws_saml_url = home/amazon_aws/0oa9b38vkxDk1tvZp1t7/272
-role_arn = arn:aws:iam::264877002243:role/okta-AWS-infosec-Admin
