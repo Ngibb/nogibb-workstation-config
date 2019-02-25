@@ -95,6 +95,7 @@ include desktop_config::gnome_settings
 include desktop_config::apps::chrome
 include desktop_config::apps::terraform
 include desktop_config::apps::aws_okta_cli
+include desktop_config::apps::aws_es_proxy
 include desktop_config::apps::spotify
 include desktop_config::apps::slack
 include desktop_config::apps::irssi
