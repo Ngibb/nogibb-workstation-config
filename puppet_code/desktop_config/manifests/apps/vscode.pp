@@ -42,4 +42,24 @@ class desktop_config::apps::vscode {
     require  => [File["/home/${config_user}/.vscode/extensions"], Package["code"]]
   }
 
+  # # puppet plugin
+  # exec {"vscode_vim_plugin":
+  #   command  => "code --install-extension vscodevim.vim",
+  #   user     => "${config_user}",
+  #   unless   => "code --list-extensions --show-versions | grep -q 'vscodevim'",
+  #   cwd      => "/tmp/",
+  #   path     => "/bin/:/usr/bin:/user/bin/code",
+  #   require  => [File["/home/${config_user}/.vscode/extensions"], Package["code"]]
+  # }
+
+  # # terraform plugin
+  # exec {"vscode_vim_plugin":
+  #   command  => "code --install-extension vscodevim.vim",
+  #   user     => "${config_user}",
+  #   unless   => "code --list-extensions --show-versions | grep -q 'vscodevim'",
+  #   cwd      => "/tmp/",
+  #   path     => "/bin/:/usr/bin:/user/bin/code",
+  #   require  => [File["/home/${config_user}/.vscode/extensions"], Package["code"]]
+  # }
+
 }

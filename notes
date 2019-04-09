@@ -10,6 +10,7 @@ sane ssh config
 ssh authorized keys
 fail2ban
 selinux vim syntax files
+pathogen vim airline
 
 # Deb 10(buster) issues
  yubioath only in stretch

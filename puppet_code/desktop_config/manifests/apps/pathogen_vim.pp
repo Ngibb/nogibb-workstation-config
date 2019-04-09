@@ -23,5 +23,8 @@ class desktop_config::apps::pathogen_vim {
   desktop_config::apps::pathogen_plugin {"vim-puppet":
     git_url       => "https://github.com/rodjek/vim-puppet.git",
   }
+  desktop_config::apps::pathogen_plugin {"vim-airline":
+    git_url       => "https://github.com/vim-airline/vim-airline",
+  }
 }
 
