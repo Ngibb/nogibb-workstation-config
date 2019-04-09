@@ -6,7 +6,7 @@ class desktop_config::apps::vim {
     ensure => installed
   }
 
-  file {"/home/${config_user}/.vimrc":
+   file {"/home/${config_user}/.vimrc":
     content => file("${module_name}/vimrc"),
   }
 

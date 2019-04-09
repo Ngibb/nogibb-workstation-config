@@ -60,6 +60,8 @@ autocmd BufNewFile,BufRead *.rb setlocal tabstop=2
 autocmd BufNewFile,BufRead *.rb setlocal shiftwidth=2
 autocmd BufNewFile,BufRead *.rb setlocal expandtab
 
+filetype plugin indent on
+
 " load pathogen if it exists
 runtime! autoload/pathogen.vim
 if exists("g:loaded_pathogen")

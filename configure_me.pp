@@ -101,6 +101,7 @@ include desktop_config::apps::slack
 include desktop_config::apps::irssi
 include desktop_config::apps::terminator
 include desktop_config::apps::vim
+include desktop_config::apps::vim_orgmode
 include desktop_config::apps::git
 include desktop_config::apps::discord
 include desktop_config::apps::burp
