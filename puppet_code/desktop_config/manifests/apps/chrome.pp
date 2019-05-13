@@ -17,20 +17,26 @@ class desktop_config::apps::chrome {
   package { "google-chrome-stable":
     ensure => installed
   }
- 
+
+
   # kerberos
+  file {"/etc/opt/chrome/policies":
+    ensure  => 'directory',
+    owner   => root,
+    group   => root,
+  } 
+  file {"/etc/opt/chrome/policies/managed":
+    ensure  => 'directory',
+    owner   => root,
+    group   => root,
+  } 
   file {"/etc/opt/chrome/policies/managed/kerb.json":
-    ensure => 'file',
-    source => ["puppet:///modules/desktop_config/google-chrome/kerb.json",],
-    owner => root,
-    group => root,
+    ensure  => 'file',
+    source  => ["puppet:///modules/desktop_config/google-chrome/kerb.json",],
+    owner   => root,
+    group   => root,
+    require => Package["google-chrome-stable"] 
   }
-
-
-  #file {"/home/ngibb/.config/google-chrome/Default/Bookmarks":
-  #  ensure => 'link', 
-  #  target => "/home/${config_user}/git/workstation-config/puppet-code/desktop_config/files/google-chrome/Bookmarks", 
-  #}
 
 }
 

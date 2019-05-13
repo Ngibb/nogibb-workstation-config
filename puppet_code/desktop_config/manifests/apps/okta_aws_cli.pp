@@ -11,8 +11,13 @@ class desktop_config::apps::okta_aws_cli {
 	}
 
 	file{"${okta_config_dir}/config.properties":
-          content => file("${module_name}/config.properties"),
-  	  require => File["okta_aws_cli_config_dir"],
+    content => file("${module_name}/config.properties"),
+    require => File["okta_aws_cli_config_dir"],
+	}
+
+	file{"${okta_config_dir}/profiles":
+    content => file("${module_name}/okta_profiles"),
+    require => File["okta_aws_cli_config_dir"],
 	}
 
 	file{"${okta_config_dir}/bash_functions":
@@ -31,13 +36,28 @@ class desktop_config::apps::okta_aws_cli {
 	  ensure => "present",
 	}
 
+	$aws_config_dir = "/home/${config_user}/.aws"
+
+	file{"aws_config_dir":
+	  ensure => "directory",
+    path => $aws_config_dir ,
+	}
+
+	file{"${aws_config_dir}/config":
+    content => file("${module_name}/aws_config"),
+    require => File["aws_config_dir"],
+	}
+
 	# I don't know if this will be required on everyone
 	#package{"libcanberra-gtk-module":
 	#  ensure => "present",
 	#}
 
 	file{"${zshrc_dir}/okta_aws.zsh":
-          content => file("${module_name}/zshrcd/okta_aws.zsh"),
+          content => file("${module_name}/shellrcd/okta_aws"),
+	}
+	file{"${bashrc_dir}/okta_aws.sh":
+          content => file("${module_name}/shellrcd/okta_aws"),
 	}
 
 	# leaving commented, don't know if all hosts will need

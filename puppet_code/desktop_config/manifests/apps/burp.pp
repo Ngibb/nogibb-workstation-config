@@ -1,4 +1,6 @@
 # desktop_config::apps::burp
+# TODO: Install SAML raider and other plugins, load from a config file
+# TODO: Look at java version
 
 class desktop_config::apps::burp(
   $edition = "community", 
@@ -20,7 +22,10 @@ class desktop_config::apps::burp(
   }
 
   file{"${zshrc_dir}/burp.zsh":
-    content => template("${module_name}/zshrcd/burp.zsh.erb"),
+    content => template("${module_name}/shellrcd/burp.erb"),
+  }
+  file{"${bashrc_dir}/burp.sh":
+    content => template("${module_name}/shellrcd/burp.erb"),
   }
 }
 

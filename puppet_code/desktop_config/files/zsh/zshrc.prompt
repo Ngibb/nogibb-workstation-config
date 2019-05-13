@@ -1,0 +1,96 @@
+# prompt
+#
+# perform crazy voodoo on the prompt
+
+### START RIGHT PROMPT ###
+setopt prompt_subst
+
+### START GIT STATUS ###
+# get the name of the branch we are on
+git_prompt_info() {
+	ref=$(git symbolic-ref HEAD 2> /dev/null) || return 1
+	echo "(${ref#refs/heads/})"
+	return 0
+}
+
+selinux_mode() {
+	mode=`getenforce 2> /dev/null`
+	if [ $mode = "Enforcing" ]
+	then
+		echo -n "%{$fg_bold[yellow]%}($mode|$(my_type))"
+	else
+		echo -n "($mode|$(my_type))"
+	fi
+	return 0
+}
+selinux_context() {
+	secontext=`id -Z | cut -d":" -f3`
+	if [ $secontext = "unconfined_t" ]
+	then
+		echo -n "{$secontext}"
+	else
+		echo -n "%{$fg_bold[white]%}{$secontext}"
+	fi
+	return 0
+}
+my_type(){
+	secontext=`id -Z | cut -d":" -f3`
+	echo -n "$secontext"
+	return 0
+
+}
+
+selinux_context() {
+	secontext=`id -Z | cut -d":" -f3`
+	if [ $secontext = "unconfined_t" ]
+	then
+		echo -n "{$secontext}"
+	else
+		echo -n "%{$fg_bold[white]%}{$secontext}"
+	fi
+	return 0
+}
+
+exit_status() {
+	echo -n "%(?.%{$fg[white]%}.$BOLD%{$fg[yellow]%})[%?]%{$reset_color%}"
+	return 0
+}
+
+### END GIT STATUS
+
+#loginuser=`getent passwd $(/bin/cat /proc/${$}/loginuid) | cut -d : -f1`;
+
+### END RIGHT PROMPT ###
+
+# check to see if we can set a fancy prompt
+case $TERM in
+	xterm* | screen* | linux | cons25 | sun-color)
+
+		# I dont like bold text on OSX.
+		BOLD=""
+		if [ `uname` != "Darwin" ]
+		then
+			BOLD="%B"
+		fi
+
+		# set the RPROMPT
+		precmd() {
+			RPROMPT="%{$fg[yellow]%}$(selinux_mode)%{$reset_color%}"
+			if [ $(git_prompt_info) ]
+			then
+				RPROMPT="%{$fg_bold[yellow]%}$(git_prompt_info)%{$reset_color%}"
+			fi
+		}
+
+		# set the regular prompt based on UID
+		case $EUID in
+			# RED / YELLOW for root
+			0) export PS1="$(exit_status)[%*]%{$fg[white]%}$BOLD%{$fg[red]%}%n@%m%{$reset_color%}$BOLD%{$fg[yellow]%}:%~%{$reset_color%}%#%b " ;;
+
+			# green / blue for users
+			*) export PS1="$(exit_status)%{$fg[cyan]%}[%*]%{$fg[white]%}$BOLD%{$fg[cyan]%}%n%{$fg[magenta]%}@%m%{$reset_color%}$BOLD:%{$fg[blue]%}%~%{$reset_color%}%#%b " ;;
+		esac ;;
+	*)
+		# set a lame default prompt in case something breaks
+		export PS1="%n@%m:%~%# " ;;
+esac

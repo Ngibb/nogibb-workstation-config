@@ -1,3 +1,0 @@
-alias okta-aws=‘/usr/bin/java -jar ~/.okta/okta-aws-cli.jar’
-
-complete -C '/usr/bin/aws_completer' aws

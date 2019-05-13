@@ -1,0 +1,29 @@
+# mass-exec
+#
+# randomly stagger commands within $TIME_INTERVAL.
+# pairs well with clusterssh :D
+
+mass-exec() {
+	if [ -z $1 ]
+	then
+		echo "you must enter a time (in minutes)"
+		return 1
+	fi
+
+	if [ -z $2 ]
+	then
+		echo "you must enter at least one command (optionally followed by some args)"
+		return 1
+	fi
+
+	delay=$[($1*60)]
+
+	if [ $delay -eq 0 ]
+	then
+		echo "you probably entered a non-integer time"
+		exit 1
+	fi
+
+	sleep $[${RANDOM}%$delay]
+	$*[2,$#-1]
+}

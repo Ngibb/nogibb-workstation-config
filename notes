@@ -1,22 +1,16 @@
 # Keep in mind:
 iptables is `sudo crontab -e`
 pull from contrib and non free
-install puppet somewhere?
+helper script to install puppet
 sync keypass for non workstation nodes
 
 # TODO:
-
-#burp suite with saml-raider && config files
-wget -O /tmp/burpsuite.jar https://portswigger.net/burp/releases/download\?product=community\&version=1.7.32\&type=jar
-
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-ngibb  bash shell
-  dot files
-oh-my-zsh
-vim rc set t_BE= vim linux middle click 
+selinux
+sane ssh config
 ssh authorized keys
 fail2ban
-ultitail 
-gron, make json greppable
-selinux vim plugin
+selinux vim syntax files
+pathogen vim airline
+
+# Deb 10(buster) issues
+ yubioath only in stretch

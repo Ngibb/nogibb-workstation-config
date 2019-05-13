@@ -1,0 +1,4 @@
+# simple ausearch
+alias avc="ausearch -m avc,user_avc,selinux_err -i"
+alias avc.today="ausearch -m avc,user_avc,selinux_err -i -ts today"
+alias avc.week="ausearch -m avc,user_avc,selinux_err -i -ts this-week"

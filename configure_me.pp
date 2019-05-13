@@ -5,6 +5,7 @@
 $config_user = 'ngibb'
 $config_user_home_dir = "/home/${config_user}"
 $zshrc_dir = "${config_user_home_dir}/.zshrc.d"
+$bashrc_dir = "${config_user_home_dir}/.bashrc.d"
 # where this git repo lives
 $workstation_config_dir = "/home/${config_user}/git/workstation-config"
 # puppet code from the git repo, there will be link from /etc/puppet dir
@@ -14,7 +15,7 @@ $puppet_code_dir = "/etc/puppet/code/modules/"
 
 # Using the hostname to ID what kind of computer this is
 $host_type = $facts['hostname'] ? {
-  'cuiaba'	 => 'workstation',
+  'cuiaba'	     => 'workstation',
   'campo-grande' => 'homestation',
   'fatima'       => 'laptop',
   'default'      => '', 
@@ -41,7 +42,7 @@ $wanted_packages = [
 	'cgdb',
 	'mlocate',
 	'dos2unix',
-        'openconnect',
+  'openconnect',
 	'mtr',
 	'strace',
 	'wireshark',
@@ -57,10 +58,14 @@ $wanted_packages = [
 	'rsync',
 	'imagemagick',
 	'jq',
-	'ddd', #debugger
+	'ddd', # debugger
 	'libreoffice',
-	'yubioath-desktop',
+	#'yubioath-desktop',
 	'unzip',
+	'multitail',
+  'bless', # hex editor
+  'htop',
+  'packer', # aws image creation 
 ]
 
 # Packages we want / are useful
@@ -76,24 +81,33 @@ user{ $config_user:
   require => "Package[zsh]",
 }
 
-include "desktop_config::meta"
+include desktop_config::meta
 include "desktop_config::${host_type}"
-include "desktop_config::motd"
+include desktop_config::motd
 
-include "desktop_config::zsh_setup"
-include "desktop_config::emoji_support"
-include "desktop_config::gnome_settings"
+include desktop_config::debian_sources
 
-include "desktop_config::apps::terraform"
-include "desktop_config::apps::okta_aws_cli"
-include "desktop_config::apps::spotify"
-include "desktop_config::apps::slack"
-include "desktop_config::apps::irssi"
-include "desktop_config::apps::terminator"
-include "desktop_config::apps::vim"
-include "desktop_config::apps::git"
-include "desktop_config::apps::discord"
-include "desktop_config::apps::burp"
-include "desktop_config::apps::steam"
-include "desktop_config::apps::redshift"
-include "desktop_config::apps::virtualbox"
+include desktop_config::zsh_setup
+include desktop_config::bash_setup
+include desktop_config::emoji_support
+include desktop_config::gnome_settings
+
+include desktop_config::apps::chrome
+include desktop_config::apps::terraform
+include desktop_config::apps::aws_okta_cli
+include desktop_config::apps::aws_es_proxy
+include desktop_config::apps::spotify
+include desktop_config::apps::slack
+include desktop_config::apps::irssi
+include desktop_config::apps::terminator
+include desktop_config::apps::vim
+include desktop_config::apps::vim_orgmode
+include desktop_config::apps::git
+include desktop_config::apps::discord
+include desktop_config::apps::burp
+include desktop_config::apps::redshift
+include desktop_config::apps::virtualbox
+include desktop_config::apps::gron
+include desktop_config::apps::docker
+include desktop_config::apps::eclipse
+include desktop_config::apps::vscode

@@ -6,9 +6,10 @@ class desktop_config::apps::vim {
     ensure => installed
   }
 
-  file {"/home/${config_user}/.vimrc":
+   file {"/home/${config_user}/.vimrc":
     content => file("${module_name}/vimrc"),
   }
 
+  include desktop_config::apps::pathogen_vim
 }
 
