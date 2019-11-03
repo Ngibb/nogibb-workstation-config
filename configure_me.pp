@@ -42,7 +42,7 @@ $wanted_packages = [
 	'cgdb',
 	'mlocate',
 	'dos2unix',
-  'openconnect',
+	'openconnect',
 	'mtr',
 	'strace',
 	'wireshark',
@@ -63,25 +63,31 @@ $wanted_packages = [
 	#'yubioath-desktop',
 	'unzip',
 	'multitail',
-  'bless', # hex editor
-  'htop',
-  'packer', # aws image creation 
+	'bless', # hex editor
+        'htop',
+        'packer', # aws image creation 
 ]
 
-# Packages we want / are useful
+# Packages I want / are useful
 $wanted_packages.each |String $my_package|{
 	package { $my_package:
 		ensure => installed 
 	}
 }
 
-user{ $config_user:
+# Packages I don't want
+$unwanted_packages.each |String $not_my_package|{
+	package { $not_my_package:
+		ensure => absent 
+	}
+}
+
+user { $config_user:
   ensure => present,
   shell => "/usr/bin/zsh",
   require => "Package[zsh]",
 }
 
-include desktop_config::meta
 include "desktop_config::${host_type}"
 include desktop_config::motd
 

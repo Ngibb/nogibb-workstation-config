@@ -1,2 +1,2 @@
 # configure-me
-alias configure-me="sudo puppet apply <%= @configure_me_file -%> -t "
+alias configure-me="sudo puppet apply <%= @configure_me_file -%> -t --modulepath=/home/ngibb/git/workstation_config/puppet_code:/etc/puppet/code/modules"
