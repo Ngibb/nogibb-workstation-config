@@ -7,3 +7,4 @@
 `sudo apt-get install puppet`
 `sudo apt-get install git`
 `sudo puppet module install puppetlabs-apt`
+`sudo puppet apply /home/ngibb/git/workstation-config/configure_me.pp -t --modulepath=/home/ngibb/git/workstation-config/puppet_code:/etc/puppet/code/modules`
