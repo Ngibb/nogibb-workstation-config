@@ -2,11 +2,9 @@
 
 class desktop_config::apps::pathogen_vim {
 
-  file {"/home/${config_user}/.vim/autoload/":
-    ensure => directory,
-  }
-
-  file {"/home/${config_user}/.vim/bundle/":
+  file { [  "/home/${config_user}/.vim",
+            "/home/${config_user}/.vim/autoload/",
+            "/home/${config_user}/.vim/bundle/"]:
     ensure => directory,
   }
 
