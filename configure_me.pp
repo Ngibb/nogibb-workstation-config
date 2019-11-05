@@ -16,6 +16,7 @@ $puppet_code_dir = "/etc/puppet/code/modules/"
 # Using the hostname to ID what kind of computer this is
 $host_type = $facts['hostname'] ? {
   'cuiaba'	     => 'workstation',
+  'debian-vm'	     => 'workstation',
   'campo-grande' => 'homestation',
   'fatima'       => 'laptop',
   'default'      => '', 
@@ -76,11 +77,11 @@ $wanted_packages.each |String $my_package|{
 }
 
 # Packages I don't want
-$unwanted_packages.each |String $not_my_package|{
-	package { $not_my_package:
-		ensure => absent 
-	}
-}
+#$unwanted_packages.each |String $not_my_package|{
+#	package { $not_my_package:
+#		ensure => absent 
+#	}
+#}
 
 user { $config_user:
   ensure => present,
@@ -91,28 +92,27 @@ user { $config_user:
 include "desktop_config::${host_type}"
 include desktop_config::motd
 
-include desktop_config::debian_sources
+#include desktop_config::debian_sources
 
 include desktop_config::zsh_setup
 include desktop_config::bash_setup
-include desktop_config::emoji_support
-include desktop_config::gnome_settings
+#include desktop_config::emoji_support
+#include desktop_config::gnome_settings
 
+#include desktop_config::apps::spotify
+#include desktop_config::apps::virtualbox
+#include desktop_config::apps::discord
 include desktop_config::apps::chrome
 include desktop_config::apps::terraform
 include desktop_config::apps::aws_okta_cli
 include desktop_config::apps::aws_es_proxy
-include desktop_config::apps::spotify
 include desktop_config::apps::slack
 include desktop_config::apps::irssi
 include desktop_config::apps::terminator
 include desktop_config::apps::vim
-include desktop_config::apps::vim_orgmode
 include desktop_config::apps::git
-include desktop_config::apps::discord
 include desktop_config::apps::burp
 include desktop_config::apps::redshift
-include desktop_config::apps::virtualbox
 include desktop_config::apps::gron
 include desktop_config::apps::docker
 include desktop_config::apps::eclipse
