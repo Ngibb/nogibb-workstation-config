@@ -13,7 +13,11 @@ class desktop_config::apps::docker {
       id     => '9DC858229FC7DD38854AE2D88D81803C0EBFCD88',
       source => 'https://download.docker.com/linux/debian/gpg',
     },
-  } ->
+  }
+
+  # Need to update before trying to install package 
+  Class['apt::update'] ->
+
   package { "docker-ce":
    ensure => installed
   }

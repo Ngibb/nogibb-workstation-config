@@ -16,6 +16,10 @@ class desktop_config::apps::aws_okta_cli {
       'source'     => 'https://packagecloud.io/segment/aws-okta/gpgkey',
     },
   } -> 
+
+  # Need to update before trying to install aws-okta
+  Class['apt::update'] ->
+
 	package{"aws-okta":
 	  ensure => "present",
 	}

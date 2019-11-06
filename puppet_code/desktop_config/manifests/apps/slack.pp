@@ -12,6 +12,9 @@ class desktop_config::apps::slack {
     }
   }  
 
+  # Need to update before trying to install package 
+  Class['apt::update'] ->
+
   package { "slack-desktop":
     ensure => installed
   }

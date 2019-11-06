@@ -11,7 +11,11 @@ class desktop_config::apps::spotify {
       'id'     => '931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90',
       'server' => 'keyserver.ubuntu.com',
     }
-  } ->
+  }
+
+  # Need to update before trying to install package 
+  Class['apt::update'] ->
+
   package { "spotify-client":
     ensure => installed
   }

@@ -14,6 +14,9 @@ class desktop_config::apps::chrome {
     }
   }
 
+  # Need to update before trying to install package 
+  Class['apt::update'] ->
+
   package { "google-chrome-stable":
     ensure => installed
   }

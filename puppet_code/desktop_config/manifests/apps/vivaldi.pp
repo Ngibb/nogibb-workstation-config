@@ -13,6 +13,9 @@ class desktop_config::apps::vivaldi {
     }
   }
 
+  # Need to update before trying to install package 
+  Class['apt::update'] ->
+
   package { "vivaldi":
     ensure => installed
   }

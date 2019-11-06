@@ -15,7 +15,9 @@ class desktop_config::apps::vscode {
       source => 'https://packages.microsoft.com/keys/microsoft.asc',
     }
   }
-  
+
+  # Need to update before trying to install package 
+  Class['apt::update'] ->
   # install packages
   package {"code":
     ensure => "present"
