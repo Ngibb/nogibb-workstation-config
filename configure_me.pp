@@ -96,10 +96,8 @@ include desktop_config::motd
 
 include desktop_config::zsh_setup
 include desktop_config::bash_setup
-#include desktop_config::emoji_support
-#include desktop_config::gnome_settings
 
-#include desktop_config::apps::spotify
+include desktop_config::apps::spotify
 #include desktop_config::apps::virtualbox
 include desktop_config::apps::discord
 include desktop_config::apps::chrome
