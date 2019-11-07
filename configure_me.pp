@@ -98,7 +98,7 @@ include desktop_config::zsh_setup
 include desktop_config::bash_setup
 
 include desktop_config::apps::spotify
-#include desktop_config::apps::virtualbox
+include desktop_config::apps::virtualbox
 include desktop_config::apps::discord
 include desktop_config::apps::chrome
 include desktop_config::apps::terraform
