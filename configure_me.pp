@@ -16,7 +16,7 @@ $puppet_code_dir = "/etc/puppet/code/modules/"
 # Using the hostname to ID what kind of computer this is
 $host_type = $facts['hostname'] ? {
   'cuiaba'	     => 'workstation',
-  'debian-vm'	     => 'workstation',
+  'debian-vm'	   => 'workstation',
   'campo-grande' => 'homestation',
   'fatima'       => 'laptop',
   'default'      => '', 
