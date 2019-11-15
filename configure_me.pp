@@ -115,3 +115,4 @@ include desktop_config::apps::gron
 include desktop_config::apps::docker
 include desktop_config::apps::eclipse
 include desktop_config::apps::vscode
+include desktop_config::apps::signal
