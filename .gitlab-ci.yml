@@ -1,0 +1,38 @@
+stages:
+  - puppet_validate
+  - puppet_lint
+  - yaml_validate
+
+include:
+  - project: 'Ngibb/ci-jobs'
+    file: 'puppet-validate.yml'
+
+  - project: 'Ngibb/ci-jobs'
+    file: 'puppet-lint.yml'
+
+  - project: 'Ngibb/ci-jobs'
+    file: 'yaml-validate.yml'
+
+puppet_validate:
+  stage: puppet_validate
+  extends: .puppet_validate_latest
+
+puppet_validate_v6.X.X_newest:
+  stage: puppet_validate
+  extends: .puppet_validate_version
+  variables:
+    PUPPET_VERSION: "~> 6"
+ 
+puppet_validate_v5.X.X_newest:
+  stage: puppet_validate
+  extends: .puppet_validate_version
+  variables:
+    PUPPET_VERSION: "~> 5"
+
+.puppet_lint_default:
+  stage: puppet_lint
+  extends: .puppet_lint
+
+yamllint_validate_default:
+  stage: yaml_validate
+  extends: .yamllint_default
