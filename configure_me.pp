@@ -92,7 +92,7 @@ user { $config_user:
 include "desktop_config::${host_type}"
 include desktop_config::motd
 
-#include desktop_config::debian_sources
+include desktop_config::debian_sources
 
 include desktop_config::zsh_setup
 include desktop_config::bash_setup
