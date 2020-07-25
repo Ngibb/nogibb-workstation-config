@@ -76,12 +76,33 @@ $wanted_packages.each |String $my_package|{
 	}
 }
 
+$unwanted_games = [
+	'aisleriot',
+	'five-or-more',
+	'four-in-a-row',
+	'gnome-chess',
+	'gnome-klotski',
+	'gnome-mahjongg',
+	'gnome-mines',
+	'gnome-nibbles',
+	'gnome-robots',
+	'gnome-sudoku',
+	'gnome-taquin',
+	'gnome-tetravex',
+	'hitori',
+	'hoichess',
+	'iagno',
+	'lightsoff',
+	'quadrapassel',
+	'swell-foop',
+	'tali'
+]
 # Packages I don't want
-#$unwanted_packages.each |String $not_my_package|{
-#	package { $not_my_package:
-#		ensure => absent 
-#	}
-#}
+$unwanted_games.each |String $not_my_package|{
+	package { $not_my_package:
+		ensure => absent 
+	}
+}
 
 user { $config_user:
   ensure => present,
