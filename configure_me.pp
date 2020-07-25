@@ -138,3 +138,4 @@ include desktop_config::apps::eclipse
 include desktop_config::apps::vscode
 include desktop_config::apps::signal
 include desktop_config::apps::obs_studio
+include desktop_config::apps::system_tray_icons
