@@ -48,7 +48,7 @@ class desktop_config::debian_sources(
  # }
   class { 'apt::backports':
     location => 'http://deb.debian.org/debian',
-    repos    => "main",
+    repos    => "main contrib non-free",
     release  => "${desired_release}-backports",
     pin      => 200,
     include  => {
