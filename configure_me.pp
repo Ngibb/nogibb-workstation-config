@@ -139,3 +139,4 @@ include desktop_config::apps::signal
 include desktop_config::apps::obs_studio
 include desktop_config::apps::system_tray_icons
 include desktop_config::apps::yubioath_desktop
+include desktop_config::apps::surfshark
