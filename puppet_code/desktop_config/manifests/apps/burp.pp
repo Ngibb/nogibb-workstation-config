@@ -4,7 +4,7 @@
 
 class desktop_config::apps::burp(
   $edition = "community", 
-  $version = "1.7.36",
+  $version = "2020.9.1",
   $install_dir = "${config_user_home_dir}/burp",
 ){
 
