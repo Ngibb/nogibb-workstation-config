@@ -19,6 +19,10 @@ role_arn = arn:aws:iam::786630784876:role/OrganizationAccountAccessRole
 source_profile = cloudadmin
 role_arn = arn:aws:iam::667258268307:role/OrganizationAccountAccessRole
 
+[profile infosec_dev_orgrole]
+source_profile = cloudadmin
+role_arn = arn:aws:iam:227124310865::role/OrganizationAccountAccessRole
+
 [profile sec_img_prod_orgrole]
 source_profile = cloudadmin
 role_arn = arn:aws:iam::534156933862:role/OrganizationAccountAccessRole
