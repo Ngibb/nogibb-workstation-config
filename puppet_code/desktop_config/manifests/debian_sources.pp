@@ -7,15 +7,15 @@ class desktop_config::debian_sources(
 
   $desired_release = lookup("desired_debian_release", String, "first", "buster")
 
-  apt::source { "base_ftp_us":
-    location => 'http://ftp.us.debian.org/debian/',
-    repos    => 'main',
-    release  => $desired_release,
-    include  => {
-     'src' => true,
-     'deb' => true,
-   }
-  }
+ # apt::source { "base_ftp_us":
+ #   location => 'http://ftp.us.debian.org/debian/',
+ #   repos    => 'main',
+ #   release  => $desired_release,
+ #   include  => {
+ #    'src' => true,
+ #    'deb' => true,
+ #  }
+ # }
 
   apt::source { "base_security":
     location => 'http://security.debian.org/debian-security',
@@ -37,20 +37,11 @@ class desktop_config::debian_sources(
     }
   } 
 
- # apt::backports { 'backport':
- #   location => 'http://deb.debian.org/debian',
- #   repos    => "main",
- #   release  => $desired_release,
- #   pin      => 200,
- #   include  => {
- #     'deb' => true,
- #   }
- # }
   class { 'apt::backports':
     location => 'http://deb.debian.org/debian',
     repos    => "main contrib non-free",
     release  => "${desired_release}-backports",
-    pin      => 200,
+    pin      => 900,
     include  => {
       'deb' => true,
     }

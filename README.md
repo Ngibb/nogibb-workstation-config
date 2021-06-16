@@ -2,7 +2,7 @@
 - [ ] Configure backports with priority
 - [ ] Move "input values" into heira
 - [ ] Move work specific things into a seperate module / repo
-- [ ] OMG should have done a git merge
+- [ ] I need to add a apt-get autoremove
 
 
 

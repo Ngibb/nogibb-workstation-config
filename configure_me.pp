@@ -110,7 +110,7 @@ user { $config_user:
 }
 
 include "desktop_config::${host_type}"
-include desktop_config::motd
+#include desktop_config::motd
 
 include desktop_config::debian_sources
 
@@ -130,7 +130,6 @@ include desktop_config::apps::terminator
 include desktop_config::apps::vim
 include desktop_config::apps::git
 include desktop_config::apps::burp
-include desktop_config::apps::redshift
 include desktop_config::apps::gron
 include desktop_config::apps::docker
 include desktop_config::apps::eclipse
