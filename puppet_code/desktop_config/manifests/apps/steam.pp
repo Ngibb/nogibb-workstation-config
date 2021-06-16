@@ -2,16 +2,22 @@
 
 class desktop_config::apps::steam {
 
+
+# having debian backports installed and pinned is really important for getting the i386 libgl1 packages in a sane fashion
   # install package
   # have to accept the license manually
   package { "steam":
     ensure => installed
   }
 
-  # B/c it sometimes isn't installed?
-  package { "libgl1-nvidia-glvnd-glx:i386":
-    ensure => installed
-  }
+#  # B/c it sometimes isn't installed?
+#  package { "libgl1-nvidia-glvnd-glx:i386":
+#    ensure => installed
+#  }
+
+#  package { "nvidia-driver-libs-i386":
+#    ensure => installed
+#  }
   
   # adjust arch
   exec {"enable_i38":
