@@ -3,7 +3,11 @@
 - [ ] Move "input values" into heira
 - [ ] Move work specific things into a seperate module / repo
 - [ ] I need to add a apt-get autoremove
-
+- [ ] Wireless Card Drivers
+  - sudo apt-get install broadcom-sta-dkms
+- [ ] Realtek drivers?
+- [ ] Nvidia Drivers 
+  - apt install -t buster-backports nvidia-driver firmware-misc-nonfree
 
 
 
