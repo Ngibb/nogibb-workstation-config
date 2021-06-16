@@ -22,7 +22,7 @@ class desktop_config::debian_sources(
     repos    => 'main',
     release  => "${desired_release}/updates",
     include  => {
-     #'src' => true,
+     'src' => true,
      'deb' => true,
    }
   }

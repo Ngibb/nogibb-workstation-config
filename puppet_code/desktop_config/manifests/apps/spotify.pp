@@ -7,9 +7,9 @@ class desktop_config::apps::spotify {
     location => 'http://repository.spotify.com',
     release => 'stable',
     repos => 'non-free',
-    key          => {
-      'id'     => '2EBF997C15BDA244B6EBF5D84773BD5E130D1D45',
-      'server' => 'keyserver.ubuntu.com',
+    key          => 
+    {
+      'id' => '8FD3D9A8D3800305A9FFF259D1742AD60D811D58'
     }
   }
 
