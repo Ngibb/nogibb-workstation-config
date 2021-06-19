@@ -3,8 +3,8 @@
 # TODO: Look at java version
 
 class desktop_config::apps::burp(
-  $edition = "community", 
-  $version = "2020.9.1",
+  $edition = lookup('burp.edition', undef, undef, 'community'),
+  $version = lookup('burp.version', undef, undef, '2020.9.1'),
   $install_dir = "${config_user_home_dir}/burp",
 ){
 
