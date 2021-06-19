@@ -1,5 +1,4 @@
 # desktop_config::apps::docker
-# Docker is straight broken on my computer
 
 class desktop_config::apps::docker {
 
@@ -16,15 +15,18 @@ class desktop_config::apps::docker {
   }
 
   # Need to update before trying to install package 
-  Class['apt::update'] ->
+  Class['apt::update']
 
-  package { "docker-ce":
-   ensure => installed
+  -> package { 'docker-ce':
+    ensure => installed
   }
 
+
+  $config_user = lookup(config_user, String)
+  group {'docker':
+    members => [$config_user]
+  }
   # Add config user to docker group
-  #srw-rw---- 1 root docker 0 Feb  4 11:05 /var/run/docker.sock
-  # sudo chmod 666 /var/run/docker.sock
 
 }
 
