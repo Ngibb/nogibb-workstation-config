@@ -108,7 +108,6 @@ include desktop_config::apps::docker   # add user to group
 include desktop_config::apps::virtualbox
 include desktop_config::apps::terraform
 include desktop_config::apps::slack
-include desktop_config::apps::irssi
 include desktop_config::apps::vim
 include desktop_config::apps::git
 include desktop_config::apps::burp
