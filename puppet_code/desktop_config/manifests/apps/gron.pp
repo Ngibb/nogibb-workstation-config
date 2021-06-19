@@ -3,10 +3,10 @@
 # TODO: Make sure the ownership of the fire is correct
 
 class desktop_config::apps::gron(
-  $version = "0.6.0",
+  $edition = lookup('gron.version', undef, undef, '0.6.0'),
   $install_dir = "/usr/local/bin",
 ){
- 
+
   file {$install_dir:
     ensure => directory
   }
