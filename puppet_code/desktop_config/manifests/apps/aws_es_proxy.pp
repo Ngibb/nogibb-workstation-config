@@ -1,12 +1,10 @@
 # desktop_config::apps::aws_es_proxy
-# TODO: Write a little ruby wrapper to that takes the role
-#       es url and opens a browser
 
 class desktop_config::apps::aws_es_proxy(
-  $version = "0.9",
+  $version = lookup('aws_es_proxy::version', undef, undef, '0.9'),
   $install_dir = "${config_user_home_dir}/bin",
 ){
-  $binary_name = "aws-es-proxy-${version}-linux-amd64"
+  $binary_name = "aws-es-proxy-linux-amd64"
 
   file {$install_dir:
     ensure => directory
@@ -25,11 +23,11 @@ class desktop_config::apps::aws_es_proxy(
    mode  => "u+x",
   }
 
-  file {"${install_dir}/aws_kibana_wrapper.rb":
+  file {"${install_dir}/aws_kibana_wrapper.sh":
    owner   => $config_user,
    group   => $config_user,
    mode    => "u+x",
-   content => file("${module_name}/aws_okta/aws_kibana_wrapper.rb"),
+   content => file("${module_name}/aws_okta/aws_kibana_wrapper.sh"),
   }
 }
 
