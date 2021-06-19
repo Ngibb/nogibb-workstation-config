@@ -10,8 +10,11 @@ class desktop_config::apps::git {
     ensure    => 'directory',
   }
 
-  file {"/etc/gitconfig":
-    content => file("${module_name}/gitconfig")
+  $git_human_name = lookup('git.config.username')
+  $git_email      = lookup('git.config.email')
+
+  file {'/etc/gitconfig':
+    content => template("${module_name}/gitconfig.erb")
   }
 
 }
