@@ -1,7 +1,7 @@
 # desktop_config::apps::aws_es_proxy
 
 class desktop_config::apps::aws_es_proxy(
-  $version = lookup('aws_es_proxy::version', undef, undef, '0.9'),
+  $version = lookup('aws_es_proxy.version', undef, undef, '0.9'),
   $install_dir = "${config_user_home_dir}/bin",
 ){
   $binary_name = "aws-es-proxy-linux-amd64"
