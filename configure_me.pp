@@ -102,7 +102,7 @@ include desktop_config::bash_setup
 
 #Tools
 include desktop_config::apps::aws_es_proxy
-include desktop_config::apps::aws_okta_cli
+include desktop_config::apps::aws_okta_cli #still needs refactor 
 include desktop_config::apps::chrome
 include desktop_config::apps::docker
 include desktop_config::apps::virtualbox

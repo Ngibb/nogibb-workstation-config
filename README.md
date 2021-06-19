@@ -11,3 +11,4 @@
 - [ ] Fail 2 ban
 - [ ] Selinux? maaaaaybe?
 - [ ] ssh config?
+- [ ] better awscli install (for v2, specify version)
