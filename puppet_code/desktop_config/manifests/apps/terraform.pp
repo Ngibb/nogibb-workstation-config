@@ -1,11 +1,14 @@
 # desktop_config::apps::terraform
 
 class desktop_config::apps::terraform {
+  $terraform_version = lookup('terraform.version')
+  $terraform_install_location = '/usr/local/bin/terraform'
+
   exec {"install_terraform":
-    creates => "/usr/local/bin/terraform",
-    command => "wget https://releases.hashicorp.com/terraform/0.11.10/terraform_0.11.10_linux_amd64.zip && unzip terraform*.zip && mv terraform /usr/local/bin",
-    cwd => "/tmp/",
-    path => "/bin/:/usr/bin", 
+    command => "wget https://releases.hashicorp.com/terraform/${terraform_version}/terraform_${terraform_version}_linux_amd64.zip && unzip terraform_${terraform_version}_linux_amd64.zip && mv terraform ${terraform_install_location} ",
+    cwd     => "/tmp/",
+    path    => "/bin/:/usr/bin",
+    unless  => "${terraform_install_location} --version | grep -q \"v${terraform_version}\""
   }
   
   file{"${zshrc_dir}/terrafrom_tab_complete.zsh":
