@@ -1,9 +1,10 @@
 # desktop_config::apps::signal
-# https://signal.org/download/
 
 class desktop_config::apps::signal {
- 
+
   # configure source for package
+  # https://signal.org/en/download/#
+  # Yes, it's xenial. That is from signal's download page *shrug*
   apt::source {'signal-xenial':
     comment      => 'signal',
     architecture => 'amd64',
@@ -17,10 +18,10 @@ class desktop_config::apps::signal {
   }
 
   # Need to update before trying to install package 
-  Class['apt::update'] ->
+  Class['apt::update']
   # install packages
-  package {"signal-desktop":
-    ensure => "present"
+  -> package {'signal-desktop':
+    ensure => 'present'
   }
 
 }
