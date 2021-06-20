@@ -2,7 +2,7 @@
 # code --help
 
 class desktop_config::apps::vscode {
- 
+
   # configure source for package
   apt::source {'vscode':
     comment      => 'vscode',
@@ -17,51 +17,25 @@ class desktop_config::apps::vscode {
   }
 
   # Need to update before trying to install package 
-  Class['apt::update'] ->
+  Class['apt::update']
   # install packages
-  package {"code":
-    ensure => "present"
+  -> package {'code':
+    ensure => 'present'
   }
 
   # set up config dir
   file {"/home/${config_user}/.vscode":
-    ensure => "directory",
+    ensure => 'directory',
   }
 
   # set up extension dir
   file {"/home/${config_user}/.vscode/extensions":
-    ensure => "directory",
+    ensure  => 'directory',
     require => File["/home/${config_user}/.vscode"],
   }
 
-  # vim key bindings
-  exec {"vscode_vim_plugin":
-    command  => "code --install-extension vscodevim.vim",
-    user     => "${config_user}",
-    unless   => "code --list-extensions --show-versions | grep -q 'vscodevim'",
-    cwd      => "/tmp/",
-    path     => "/bin/:/usr/bin:/user/bin/code",
-    require  => [File["/home/${config_user}/.vscode/extensions"], Package["code"]]
-  }
-
-  # # puppet plugin
-  # exec {"vscode_vim_plugin":
-  #   command  => "code --install-extension vscodevim.vim",
-  #   user     => "${config_user}",
-  #   unless   => "code --list-extensions --show-versions | grep -q 'vscodevim'",
-  #   cwd      => "/tmp/",
-  #   path     => "/bin/:/usr/bin:/user/bin/code",
-  #   require  => [File["/home/${config_user}/.vscode/extensions"], Package["code"]]
-  # }
-
-  # # terraform plugin
-  # exec {"vscode_vim_plugin":
-  #   command  => "code --install-extension vscodevim.vim",
-  #   user     => "${config_user}",
-  #   unless   => "code --list-extensions --show-versions | grep -q 'vscodevim'",
-  #   cwd      => "/tmp/",
-  #   path     => "/bin/:/usr/bin:/user/bin/code",
-  #   require  => [File["/home/${config_user}/.vscode/extensions"], Package["code"]]
-  # }
+  desktop_config::apps::vscode_plugin {'vscodevim.vim':}
+  desktop_config::apps::vscode_plugin {'puppet.puppet-vscode':}
+  desktop_config::apps::vscode_plugin {'hashicorp.terraform':}
 
 }
