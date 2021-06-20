@@ -3,7 +3,7 @@
 # TODO: Make sure the ownership of the fire is correct
 
 class desktop_config::apps::gron(
-  $edition = lookup('gron.version', undef, undef, '0.6.0'),
+  $version = lookup('gron.version', undef, undef, '0.6.0'),
   $install_dir = "/usr/local/bin",
 ){
 
