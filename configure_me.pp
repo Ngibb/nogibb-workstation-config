@@ -115,7 +115,7 @@ include desktop_config::apps::gron
 include desktop_config::apps::eclipse
 include desktop_config::apps::vscode
 include desktop_config::apps::signal
-include desktop_config::apps::obs_studio
+include desktop_config::apps::obs_studio # We could compile this from source, but this is good enough for now
 include desktop_config::apps::surfshark
 include desktop_config::apps::system_tray_icons
 include desktop_config::apps::terminator
