@@ -19,9 +19,7 @@ class desktop_config::bash_setup {
  
   $bashrc_files = [
     'alias',
-    'localdev',
     'man',
-    'vault',
   ]
 
   $bashrc_files.each |String $my_package|{

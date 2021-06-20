@@ -38,5 +38,5 @@ set -xe
 
 CONFIG_DIR_PATH=$(dirname $0)
 echo "Run puppet"
-sudo $PUPPET_BINARY_PATH apply ${CONFIG_DIR_PATH}/configure_me.pp -t --noop --modulepath=${CONFIG_DIR_PATH}/puppet_code:/etc/puppetlabs/code/environments/production/modules
+echo "sudo $PUPPET_BINARY_PATH apply ${CONFIG_DIR_PATH}/configure_me.pp -t --noop --modulepath=${CONFIG_DIR_PATH}/puppet_code:/etc/puppetlabs/code/environments/production/modules"
 echo ""

@@ -126,3 +126,9 @@ include desktop_config::apps::spotify
 if lookup(install_games, Boolean, 'first', false ) {
   include desktop_config::games
 }
+if lookup(broadcom_wifi_card, Boolean, 'first', false ) {
+  include desktop_config::broadcom_wireless
+}
+if lookup(broadcom_wifi_card, Boolean, 'first', false ) {
+  include desktop_config::nvidia_graphics
+}

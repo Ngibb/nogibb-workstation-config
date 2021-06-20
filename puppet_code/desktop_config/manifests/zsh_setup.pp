@@ -45,9 +45,7 @@ class desktop_config::zsh_setup {
 
   $zshrc_files = [
     'alias',
-    'localdev',
     'man',
-    'vault',
   ]
 
   $zshrc_files.each |String $my_package|{
