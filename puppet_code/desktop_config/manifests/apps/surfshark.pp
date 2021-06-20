@@ -12,9 +12,9 @@ class desktop_config::apps::surfshark {
   } ->
 
   # Need to update before trying to install package 
-  Class['apt::update'] ->
+  Class['apt::update']
 
-  package { 'surfshark-vpn':
+   -> package { 'surfshark-vpn':
     ensure => installed
   }
 }
