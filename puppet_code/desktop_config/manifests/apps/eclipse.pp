@@ -4,7 +4,7 @@
 class desktop_config::apps::eclipse (
   $install_dir = '/opt',
   $eclipse_dir = "${install_dir}/eclipse",
-  $eclispe_version = lookup('eclipse.version', undef, undef, 2018-12)
+  $eclispe_version = lookup('eclipse.version', undef, undef, '2018-12')
 ){
 
   # From https://www.eclipse.org/downloads/packages/
