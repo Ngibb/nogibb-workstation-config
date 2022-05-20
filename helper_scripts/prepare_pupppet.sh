@@ -46,6 +46,7 @@ echo ""
 set -xe
 
 # Create SSH Key
+mkdir -p ~/.ssh
 cd ~/.ssh
 ssh-keygen -t ecdsa
 cd ~
