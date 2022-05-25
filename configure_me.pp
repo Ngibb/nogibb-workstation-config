@@ -1,5 +1,5 @@
 # User who this is being configed for
-$config_user = lookup(config_user, String)
+$config_user = lookup(config_user, String, undef, "ngibb")
 
 $config_user_home_dir = "/home/${config_user}"
 $zshrc_dir = "${config_user_home_dir}/.zshrc.d"

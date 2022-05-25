@@ -21,8 +21,6 @@ class desktop_config::apps::docker {
     ensure => installed
   }
 
-
-  $config_user = lookup(config_user, String)
   group {'docker':
     members => [$config_user]
   }

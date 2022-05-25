@@ -23,7 +23,7 @@ class desktop_config::apps::chrome {
 
 
   # kerberos
-  $auth_server_whitelist = lookup('chrome.kerbconfig.auth_server_whitelist')#, undef, undef, false)
+  $auth_server_whitelist = lookup('chrome.kerbconfig.auth_server_whitelist', undef, undef, false)
   if $auth_server_whitelist {
     file {'/etc/opt/chrome/policies':
       ensure => 'directory',

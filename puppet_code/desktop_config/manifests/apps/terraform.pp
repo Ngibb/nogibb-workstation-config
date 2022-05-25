@@ -1,7 +1,7 @@
 # desktop_config::apps::terraform
 
 class desktop_config::apps::terraform {
-  $terraform_version = lookup('terraform.version')
+  $terraform_version = lookup('terraform.version', undef, undef, "1.0.4")
   $terraform_install_location = '/usr/local/bin/terraform'
 
   exec {"install_terraform":
