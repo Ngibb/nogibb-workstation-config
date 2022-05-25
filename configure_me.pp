@@ -118,7 +118,6 @@ include desktop_config::apps::obs_studio # We could compile this from source, bu
 include desktop_config::apps::surfshark
 include desktop_config::apps::system_tray_icons
 include desktop_config::apps::terminator
-include desktop_config::apps::yubioath_desktop
 
 # Fun :)
 include desktop_config::apps::spotify
