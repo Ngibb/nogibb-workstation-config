@@ -120,7 +120,7 @@ include desktop_config::apps::system_tray_icons
 include desktop_config::apps::terminator
 
 # Fun :)
-include desktop_config::apps::spotify
+#include desktop_config::apps::spotify
 if lookup(install_games, Boolean, 'first', false ) {
   include desktop_config::games
 }
