@@ -2,7 +2,7 @@
 - [ ] AWS CLI - https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 - [ ] AWS CLI  Plugin for oh-my-zsh
 - [ ] AWS CLI autocomplete for not zsh
-- [ ] Docker Compose
+- [ ] Docker Compose Plugin
 - [ ] Tree
 
 ### Potential Additions

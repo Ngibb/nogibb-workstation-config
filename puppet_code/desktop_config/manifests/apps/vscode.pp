@@ -37,5 +37,8 @@ class desktop_config::apps::vscode {
   desktop_config::apps::vscode_plugin {'vscodevim.vim':}
   desktop_config::apps::vscode_plugin {'puppet.puppet-vscode':}
   desktop_config::apps::vscode_plugin {'hashicorp.terraform':}
+  # docker
+  # python
+
 
 }
